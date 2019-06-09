@@ -11,16 +11,19 @@ Public Class Form1
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub ValidatePersonButton_Click(sender As Object, e As EventArgs) Handles ValidatePersonButton.Click
-        Dim birthDate = $"{birthDateMonthComboBox.Text}/{daysComboBox.Text}/{yearsComboBox.Text}"
+        Dim bDate As Date
+        Date.TryParse($"{birthDateMonthComboBox.Text}/{daysComboBox.Text}/{yearsComboBox.Text}", bDate)
 
-        Dim person As New Person With {
+        Dim person As New Employee With
+                {
                 .Identifier = 1,
                 .FirstName = firstNameTextBox.Text,
                 .LastName = lastNameTextBox.Text,
-                .BirthDate = birthDate.TryParse(),
+                .BirthDate = bDate,
+                .ContactTypeIdentifier = CType(ContactTypeComboBox.SelectedItem, ContactType).ContactTypeIdentifier,
                 .ModifiedByUserId = 12,
                 .ModifiedDate = Now
-        }
+                }
 
         Dim validationResult As EntityValidationResult = ValidationHelper.ValidateEntity(person)
 
@@ -29,7 +32,6 @@ Public Class Form1
         Else
             MessageBox.Show("Good person")
         End If
-
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -41,6 +43,8 @@ Public Class Form1
         birthDateMonthComboBox.DataSource = dateData.MonthIndices
         daysComboBox.DataSource = dateData.DaysIndices
         yearsComboBox.DataSource = dateData.YearIndices
+
+        ContactTypeComboBox.DataSource = contactTypeList
 
     End Sub
 End Class

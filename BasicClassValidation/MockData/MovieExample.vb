@@ -39,11 +39,14 @@ Namespace MockData
 
             Dim movie As New Movie With {.Title = "Black Tide", .Genre = "Adventure", .Price = 1.45D}
 
+            ' Get Price property
             Dim prop As PropertyInfo = GetType(Movie).GetProperty("Price")
 
-            Dim attribute = CType(prop.GetCustomAttributes(GetType(DisplayFormatAttribute), True).
+            ' Get information so to drill down to the format string of Price property 
+            Dim attribute As DisplayFormatAttribute = CType(prop.GetCustomAttributes(GetType(DisplayFormatAttribute), True).
                     FirstOrDefault(), DisplayFormatAttribute)
 
+            ' do we have a format, if so show it.
             If attribute IsNot Nothing Then
                 Console.WriteLine(attribute.DataFormatString, movie.Price)
             End If

@@ -10,27 +10,37 @@ Namespace Classes
         ''' Foreign key to ContactType table
         ''' </summary>
         ''' <returns></returns>
-        <ContactType(SelectContactType:=0, ErrorMessage:="Must select a contact type")>
+        <ContactType(SelectContactType:=0,
+                     ErrorMessage:="Must select a contact type")>
         Public Property ContactTypeIdentifier As Integer?
 
-        Public ReadOnly Property Id As Integer Implements IBaseEntity.Id
+        Public ReadOnly Property Id As Integer _
+            Implements IBaseEntity.Id
+
             Get
                 Return Identifier
             End Get
+
         End Property
-        Public ReadOnly Property ModifiedOn As Date Implements IBaseEntity.ModifiedOn
+        Public ReadOnly Property ModifiedOn As Date _
+            Implements IBaseEntity.ModifiedOn
+
             Get
                 Return ModifiedDate
             End Get
+
         End Property
         ''' <summary>
         ''' Identity of person modifying the person record
         ''' </summary>
         ''' <returns></returns>
-        Public ReadOnly Property ModifiedByUserIdentifier As Integer Implements IBaseEntity.ModifiedByUserId
+        Public ReadOnly Property ModifiedByUserIdentifier As Integer _
+            Implements IBaseEntity.ModifiedByUserId
+
             Get
                 Return ModifiedByUserId
             End Get
+
         End Property
     End Class
 End Namespace

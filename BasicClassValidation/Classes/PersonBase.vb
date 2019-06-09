@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel.DataAnnotations
+Imports BasicClassValidation.Rules
 
 Namespace Classes
     Public Class PersonBase
@@ -7,29 +8,36 @@ Namespace Classes
         ''' </summary>
         ''' <returns></returns>
         Public Property Identifier() As Integer
+
         ''' <summary>
         ''' First name of the person
         ''' </summary>
         ''' <returns></returns>
-        <Required(ErrorMessage:="{0} is required"), DataType(DataType.Text)>
+        <Required(ErrorMessage:="{0} is required"),
+            DataType(DataType.Text)>
         Public Property FirstName() As String
         ''' <summary>
         ''' Middle name or initial of the person
         ''' </summary>
         ''' <returns></returns>
         Public Property MiddleName() As String
+
         ''' <summary>
         ''' Last name of the person
         ''' </summary>
         ''' <returns></returns>
-        <Required(ErrorMessage:="{0} is required"), DataType(DataType.Text)>
+        <Required(ErrorMessage:="{0} is required"),
+            DataType(DataType.Text)>
         Public Property LastName() As String
+
         ''' <summary>
         ''' Date of birth of the person
         ''' </summary>
         ''' <returns></returns>
-        <Required(ErrorMessage:="{0} is required and valid {1}"), DataType(DataType.DateTime)>
-        Public Property BirthDate() As DateTime?
+        <CustomValidation(GetType(BirthDateValidation),
+                          NameOf(BirthDateValidation.BirthDateValidate))>
+        Public Property BirthDate() As Date?
+
         ''' <summary>
         ''' Method to calculate person's age. There is no check for BirthDate
         ''' being null as BirthDate is a required property

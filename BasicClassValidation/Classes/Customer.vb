@@ -16,7 +16,9 @@ Namespace Classes
         ''' represent max and min field length.
         ''' </summary>
         ''' <returns></returns>
-        <StringLength(72, MinimumLength:=10, ErrorMessage:="{0} cannot be longer than {1} characters and less than {2} characters")>
+        <StringLength(72,
+                      MinimumLength:=10,
+                      ErrorMessage:="{0} cannot be longer than {1} characters and less than {2} characters")>
         Public Property CompanyName As String
         ''' <summary>
         ''' Used to move from a poorly designed database table
@@ -41,7 +43,8 @@ Namespace Classes
         ''' represents the first element in a ComboBox "Select"
         ''' </summary>
         ''' <returns></returns>
-        <Country(SelectCountry:=0, ErrorMessage:="Must select a country")>
+        <Country(SelectCountry:=0,
+                 ErrorMessage:="Must select a country")>
         Public Property CountryIdentifier As Integer?
         Public Property Phone As String
         ''' <summary>
@@ -53,13 +56,15 @@ Namespace Classes
         ''' Used to confirm password which requires two TextBox controls
         ''' </summary>
         ''' <returns></returns>
-        <Compare("Customer.Password", ErrorMessage:="The fields Password and Password Confirmation should be equals")>
+        <Compare("Customer.Password",
+                 ErrorMessage:="The fields Password and Password Confirmation should be equals")>
         Public Property PasswordConfirmation() As String
         ''' <summary>
         ''' Foreign key to ContactType table
         ''' </summary>
         ''' <returns></returns>
-        <ContactType(SelectContactType:=0, ErrorMessage:="Must select a contact type")>
+        <ContactType(SelectContactType:=0,
+                     ErrorMessage:="Must select a contact type")>
         Public Property ContactTypeIdentifier As Integer?
         Public Property ModifiedDate As DateTime?
         ''' <summary>

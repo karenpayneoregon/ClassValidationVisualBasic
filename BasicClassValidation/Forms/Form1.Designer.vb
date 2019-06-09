@@ -32,6 +32,8 @@ Partial Class Form1
         Me.daysComboBox = New System.Windows.Forms.ComboBox()
         Me.yearsComboBox = New System.Windows.Forms.ComboBox()
         Me.birthDateMonthComboBox = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.ContactTypeComboBox = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -89,6 +91,8 @@ Partial Class Form1
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.ContactTypeComboBox)
+        Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.daysComboBox)
         Me.GroupBox1.Controls.Add(Me.yearsComboBox)
         Me.GroupBox1.Controls.Add(Me.birthDateMonthComboBox)
@@ -132,11 +136,29 @@ Partial Class Form1
         Me.birthDateMonthComboBox.Size = New System.Drawing.Size(50, 21)
         Me.birthDateMonthComboBox.TabIndex = 9
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(38, 156)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(67, 13)
+        Me.Label4.TabIndex = 10
+        Me.Label4.Text = "Contact type"
+        '
+        'ContactTypeComboBox
+        '
+        Me.ContactTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ContactTypeComboBox.FormattingEnabled = True
+        Me.ContactTypeComboBox.Location = New System.Drawing.Point(111, 150)
+        Me.ContactTypeComboBox.Name = "ContactTypeComboBox"
+        Me.ContactTypeComboBox.Size = New System.Drawing.Size(200, 21)
+        Me.ContactTypeComboBox.TabIndex = 12
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(376, 299)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Form1"
         Me.Text = "Form1"
@@ -156,4 +178,6 @@ Partial Class Form1
     Friend WithEvents birthDateMonthComboBox As ComboBox
     Friend WithEvents yearsComboBox As ComboBox
     Friend WithEvents daysComboBox As ComboBox
+    Friend WithEvents ContactTypeComboBox As ComboBox
+    Friend WithEvents Label4 As Label
 End Class

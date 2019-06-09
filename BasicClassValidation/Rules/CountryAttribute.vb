@@ -2,7 +2,8 @@
 
 Namespace Rules
 
-    <AttributeUsage(AttributeTargets.Field Or AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)>
+    <AttributeUsage(AttributeTargets.Field Or AttributeTargets.Property,
+                    AllowMultiple:=False, Inherited:=True)>
     Public Class CountryAttribute
         Inherits ValidationAttribute
 

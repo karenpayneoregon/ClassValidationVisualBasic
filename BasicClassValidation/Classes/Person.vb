@@ -4,6 +4,7 @@ Namespace Classes
     Public Class Person
         Inherits PersonBase
         Implements IBaseEntity
+
         ''' <summary>
         ''' Key to identifying the a specific person pointing to
         ''' the Identifier.
@@ -19,19 +20,25 @@ Namespace Classes
         ''' Date the person record was modified
         ''' </summary>
         ''' <returns></returns>
-        Public ReadOnly Property ModifiedOn As Date Implements IBaseEntity.ModifiedOn
+        Public ReadOnly Property ModifiedOn As Date _
+            Implements IBaseEntity.ModifiedOn
+
             Get
                 Return ModifiedDate
             End Get
+
         End Property
         ''' <summary>
         ''' Identity of person modifying the person record
         ''' </summary>
         ''' <returns></returns>
-        Public ReadOnly Property ModifiedByUserIdentifier As Integer Implements IBaseEntity.ModifiedByUserId
+        Public ReadOnly Property ModifiedByUserIdentifier As Integer _
+            Implements IBaseEntity.ModifiedByUserId
+
             Get
                 Return ModifiedByUserId
             End Get
+
         End Property
         ''' <summary>
         ''' Suitable for displaying in a UI control or for debugging purposes

@@ -1,5 +1,10 @@
 ﻿Imports BasicClassValidation.Classes
 Namespace MockData
+    ''' <summary>
+    ''' Contact types are a mock for reading from a database then after
+    ''' the mock read add a "Select" option to the top of the list for
+    ''' use with a ComboBox.
+    ''' </summary>
     Public Class ContactTypeList
         Public Function List() As List(Of ContactType)
 
