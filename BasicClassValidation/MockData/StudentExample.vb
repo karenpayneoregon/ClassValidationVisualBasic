@@ -10,13 +10,15 @@ Namespace MockData
         ''' </summary>
         ''' <returns></returns>
         Public Function CreateBadStudent() As String
+
             Dim result As String = ""
+
             Dim student As New StudentModel With
                     {
                     .FirstName = "Karen",
                     .LastName = "Payne",
-                    .Email = "kp1@gmail.com",
-                    .ConfirmEmail = "kp@gmail.com",
+                    .Email = "kp111@gmail.com",
+                    .ConfirmEmail = "kp12@gmail.com",
                     .Age = 20
                     }
 
@@ -34,7 +36,9 @@ Namespace MockData
         ''' </summary>
         ''' <returns></returns>
         Public Function CreateValidStudent() As String
+
             Dim result As String = ""
+
             Dim student As New StudentModel With
                     {
                     .FirstName = "Karen",
