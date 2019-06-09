@@ -20,8 +20,10 @@ Namespace LanguageExtensions
         ''' <returns></returns>
         <Runtime.CompilerServices.Extension>
         Public Function ErrorMessageList(sender As EntityValidationResult) As String
+
             Dim sb As New StringBuilder
             sb.AppendLine("Validation issues")
+
             For Each errorItem As ValidationResult In sender.Errors
                 sb.AppendLine(errorItem.SanitizedErrorMessage)
             Next
