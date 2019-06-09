@@ -24,6 +24,10 @@ Partial Class MainForm
     Private Sub InitializeComponent()
         Me.LoginButton = New System.Windows.Forms.Button()
         Me.SocialSecurityLoginButton = New System.Windows.Forms.Button()
+        Me.ValidateSingleDateButton = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.InvalidDecimalRangeButton = New System.Windows.Forms.Button()
+        Me.ValidateStudentModelButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'LoginButton
@@ -44,11 +48,51 @@ Partial Class MainForm
         Me.SocialSecurityLoginButton.Text = "Social security Log in"
         Me.SocialSecurityLoginButton.UseVisualStyleBackColor = True
         '
+        'ValidateSingleDateButton
+        '
+        Me.ValidateSingleDateButton.Location = New System.Drawing.Point(23, 84)
+        Me.ValidateSingleDateButton.Name = "ValidateSingleDateButton"
+        Me.ValidateSingleDateButton.Size = New System.Drawing.Size(231, 23)
+        Me.ValidateSingleDateButton.TabIndex = 3
+        Me.ValidateSingleDateButton.Text = "Validate single date"
+        Me.ValidateSingleDateButton.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(294, 229)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'InvalidDecimalRangeButton
+        '
+        Me.InvalidDecimalRangeButton.Location = New System.Drawing.Point(23, 113)
+        Me.InvalidDecimalRangeButton.Name = "InvalidDecimalRangeButton"
+        Me.InvalidDecimalRangeButton.Size = New System.Drawing.Size(231, 23)
+        Me.InvalidDecimalRangeButton.TabIndex = 5
+        Me.InvalidDecimalRangeButton.Text = "Invalid Decimal range"
+        Me.InvalidDecimalRangeButton.UseVisualStyleBackColor = True
+        '
+        'ValidateStudentModelButton
+        '
+        Me.ValidateStudentModelButton.Location = New System.Drawing.Point(23, 142)
+        Me.ValidateStudentModelButton.Name = "ValidateStudentModelButton"
+        Me.ValidateStudentModelButton.Size = New System.Drawing.Size(231, 23)
+        Me.ValidateStudentModelButton.TabIndex = 6
+        Me.ValidateStudentModelButton.Text = "Valid Student model"
+        Me.ValidateStudentModelButton.UseVisualStyleBackColor = True
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(397, 264)
+        Me.Controls.Add(Me.ValidateStudentModelButton)
+        Me.Controls.Add(Me.InvalidDecimalRangeButton)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.ValidateSingleDateButton)
         Me.Controls.Add(Me.SocialSecurityLoginButton)
         Me.Controls.Add(Me.LoginButton)
         Me.Name = "MainForm"
@@ -60,4 +104,8 @@ Partial Class MainForm
 
     Friend WithEvents LoginButton As Button
     Friend WithEvents SocialSecurityLoginButton As Button
+    Friend WithEvents ValidateSingleDateButton As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents InvalidDecimalRangeButton As Button
+    Friend WithEvents ValidateStudentModelButton As Button
 End Class

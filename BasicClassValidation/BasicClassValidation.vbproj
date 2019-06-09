@@ -80,8 +80,11 @@
     <Compile Include="Classes\CustomerLogin.vb" />
     <Compile Include="Classes\DateAttribute.vb" />
     <Compile Include="Classes\Employee.vb" />
+    <Compile Include="Classes\Movie.vb" />
     <Compile Include="Classes\Person.vb" />
     <Compile Include="Classes\PersonBase.vb" />
+    <Compile Include="Classes\SomeModel.vb" />
+    <Compile Include="Classes\StudentModel.vb" />
     <Compile Include="Classes\Taxpayer.vb" />
     <Compile Include="Forms\Form1.vb">
       <SubType>Form</SubType>
@@ -94,6 +97,12 @@
       <DependentUpon>LoginForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SimpleDateValidationForm.Designer.vb">
+      <DependentUpon>SimpleDateValidationForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SimpleDateValidationForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\SocialSecurityForm.Designer.vb">
@@ -113,6 +122,8 @@
     </Compile>
     <Compile Include="MockData\ContactTypeList.vb" />
     <Compile Include="MockData\DateItem.vb" />
+    <Compile Include="MockData\MovieExample.vb" />
+    <Compile Include="MockData\StudentExample.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -131,6 +142,7 @@
     <Compile Include="Rules\ContactTypeAttribute.vb" />
     <Compile Include="Rules\CountryAttribute.vb" />
     <Compile Include="Rules\CustomerWeekendValidation.vb" />
+    <Compile Include="Rules\MyDateAttribute.vb" />
     <Compile Include="Validators\EntityValidationResult.vb" />
     <Compile Include="Validators\EntityValidator.vb" />
     <Compile Include="Validators\ValidationHelper.vb" />
@@ -141,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SimpleDateValidationForm.resx">
+      <DependentUpon>SimpleDateValidationForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SocialSecurityForm.resx">
       <DependentUpon>SocialSecurityForm.vb</DependentUpon>
