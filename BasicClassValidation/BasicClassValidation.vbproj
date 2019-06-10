@@ -80,6 +80,7 @@
     <Compile Include="Classes\CustomerLogin.vb" />
     <Compile Include="Classes\DateAttribute.vb" />
     <Compile Include="Classes\Employee.vb" />
+    <Compile Include="Classes\Fruit.vb" />
     <Compile Include="Classes\Movie.vb" />
     <Compile Include="Classes\Person.vb" />
     <Compile Include="Classes\PersonBase.vb" />
@@ -146,6 +147,7 @@
     <Compile Include="Rules\CustomerWeekendValidation.vb" />
     <Compile Include="Rules\MaxWordAttributes.vb" />
     <Compile Include="Rules\MyDateAttribute.vb" />
+    <Compile Include="Rules\NotABananaAttribute.vb" />
     <Compile Include="Validators\EntityValidationResult.vb" />
     <Compile Include="Validators\EntityValidator.vb" />
     <Compile Include="Validators\ValidationHelper.vb" />

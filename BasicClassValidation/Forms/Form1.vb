@@ -59,4 +59,15 @@ Public Class Form1
         End If
 
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim demo = New Fruit With {.FavoriteFruit = "banana"}
+        Dim validationResult As EntityValidationResult = ValidationHelper.ValidateEntity(demo)
+
+        If validationResult.HasError Then
+            MessageBox.Show(validationResult.ErrorMessageList())
+        Else
+            MessageBox.Show("Good")
+        End If
+    End Sub
 End Class
