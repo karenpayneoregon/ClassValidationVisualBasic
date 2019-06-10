@@ -29,11 +29,12 @@ Partial Class Form1
         Me.lastNameTextBox = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ContactTypeComboBox = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.daysComboBox = New System.Windows.Forms.ComboBox()
         Me.yearsComboBox = New System.Windows.Forms.ComboBox()
         Me.birthDateMonthComboBox = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.ContactTypeComboBox = New System.Windows.Forms.ComboBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -109,6 +110,24 @@ Partial Class Form1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Person"
         '
+        'ContactTypeComboBox
+        '
+        Me.ContactTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ContactTypeComboBox.FormattingEnabled = True
+        Me.ContactTypeComboBox.Location = New System.Drawing.Point(111, 150)
+        Me.ContactTypeComboBox.Name = "ContactTypeComboBox"
+        Me.ContactTypeComboBox.Size = New System.Drawing.Size(200, 21)
+        Me.ContactTypeComboBox.TabIndex = 12
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(38, 156)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(67, 13)
+        Me.Label4.TabIndex = 10
+        Me.Label4.Text = "Contact type"
+        '
         'daysComboBox
         '
         Me.daysComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -136,29 +155,21 @@ Partial Class Form1
         Me.birthDateMonthComboBox.Size = New System.Drawing.Size(50, 21)
         Me.birthDateMonthComboBox.TabIndex = 9
         '
-        'Label4
+        'Button1
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(38, 156)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(67, 13)
-        Me.Label4.TabIndex = 10
-        Me.Label4.Text = "Contact type"
-        '
-        'ContactTypeComboBox
-        '
-        Me.ContactTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ContactTypeComboBox.FormattingEnabled = True
-        Me.ContactTypeComboBox.Location = New System.Drawing.Point(111, 150)
-        Me.ContactTypeComboBox.Name = "ContactTypeComboBox"
-        Me.ContactTypeComboBox.Size = New System.Drawing.Size(200, 21)
-        Me.ContactTypeComboBox.TabIndex = 12
+        Me.Button1.Location = New System.Drawing.Point(145, 258)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 10
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(376, 299)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Form1"
         Me.Text = "Form1"
@@ -180,4 +191,5 @@ Partial Class Form1
     Friend WithEvents daysComboBox As ComboBox
     Friend WithEvents ContactTypeComboBox As ComboBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents Button1 As Button
 End Class
