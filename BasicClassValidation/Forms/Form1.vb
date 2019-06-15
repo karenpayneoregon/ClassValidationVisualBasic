@@ -4,6 +4,7 @@ Imports BasicClassValidation.LanguageExtensions
 Imports BasicClassValidation.MockData
 
 Public Class Form1
+
     ''' <summary>
     ''' Example for validation.
     ''' Mocked up several behind the scene properties

@@ -7,6 +7,7 @@ Namespace Rules
         Inherits ValidationAttribute
 
         Public Overrides Function IsValid(value As Object) As Boolean
+
             Dim inputValue = TryCast(value, String)
             Dim isValidResult = True
 
@@ -15,6 +16,7 @@ Namespace Rules
             End If
 
             Return isValidResult
+
         End Function
     End Class
 End Namespace
