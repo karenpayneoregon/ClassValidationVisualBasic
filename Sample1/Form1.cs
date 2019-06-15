@@ -21,7 +21,13 @@ namespace Sample1
         }
         private void ValidateSingleContactButton_Click(object sender, EventArgs e)
         {
-            var contact = new Contact() {Email = EmailTextBox.Text, Phone = PhoneTextBox.Text};
+            var contact = new Contact()
+            {
+                FirstName = "Q",
+                Email = EmailTextBox.Text,
+                Phone = PhoneTextBox.Text
+            };
+
             var validationResult = ValidationHelper.ValidateEntity(contact);
 
             if (!validationResult.HasError)

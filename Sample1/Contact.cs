@@ -5,6 +5,15 @@ namespace Sample1
 {
     public class Contact
     {
+        [RegularExpression(@"^.{5,}$", ErrorMessage = "Minimum 3 characters required")]
+        [Required(ErrorMessage = "{0} Required")]
+        [StringLength(30, MinimumLength = 3, ErrorMessage = "Invalid {0}")]
+        public string FirstName { get; set; }
+
+        [RegularExpression(@"^.{5,}$", ErrorMessage = "Minimum 3 characters required")]
+        [Required(ErrorMessage = "{0} Required")]
+        [StringLength(30, MinimumLength = 3, ErrorMessage = "Invalid {0}")]
+        public string LastName { get; set; }
         /// <summary>
         /// Email address
         /// </summary>
@@ -22,7 +31,7 @@ namespace Sample1
         /// But in this case there is a custom rule to keep phone number to 10 characters
         /// </remarks>
         [Required(ErrorMessage = "Mobile no. is required")]
-        [CheckPhoneValidation(ErrorMessage = "{0} must be no longer than 10 using only numbers")]
+        [CheckPhoneValidation(ErrorMessage = "{0} must be no longer than 10")]
         public string Phone { get; set; }
     }
 }
