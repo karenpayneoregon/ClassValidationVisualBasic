@@ -2,10 +2,16 @@
 
 namespace DataValidatorLibrary.CommonRules
 {
+    /// <summary>
+    /// Provides custom rule for phone number rather than using [Phone]
+    /// </summary>
     public class CheckPhoneValidationAttribute : ValidationAttribute 
     {
         public override bool IsValid(object value)
         {
+            /*
+             * VS2017 or higher
+             */
             bool IsDigitsOnly(string str)
             {
                 foreach (var c in str)
