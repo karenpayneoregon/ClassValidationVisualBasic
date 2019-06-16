@@ -15,5 +15,6 @@ Namespace Classes
 
         <ListHasElements(ErrorMessage:="{0} must contain at lease one note")>
         Public Property NotesList() As List(Of String)
+
     End Class
 End Namespace

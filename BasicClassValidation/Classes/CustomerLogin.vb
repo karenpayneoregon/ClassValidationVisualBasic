@@ -8,7 +8,8 @@ Namespace Classes
         <MaxLength(12, ErrorMessage:="The {0} can not have more than {1} characters")>
         Public Property Name() As String
 
-        <CustomValidation(GetType(CustomerWeekendValidation), NameOf(CustomerWeekendValidation.WeekendValidate))>
+        <CustomValidation(GetType(CustomerWeekendValidation),
+                          NameOf(CustomerWeekendValidation.WeekendValidate))>
         Public Property EntryDate() As Date
 
         <Required(ErrorMessage:="{0} is required"), DataType(DataType.Text)>

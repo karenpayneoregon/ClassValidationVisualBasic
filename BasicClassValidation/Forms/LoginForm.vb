@@ -5,13 +5,15 @@ Imports BasicClassValidation.Validators
 Namespace Forms
 
     Public Class LoginForm
-        Private Sub LogInButton_Click(sender As Object, e As EventArgs) Handles LogInButton.Click
+        Private Sub LogInButton_Click(sender As Object, e As EventArgs) _
+            Handles LogInButton.Click
 
             Dim login As New CustomerLogin With
                     {
                         .Name = UserNameTextBox.Text,
                         .Password = PasswordTextBox.Text,
-                        .PasswordConfirmation = PasswordConfirmTextBox.Text, .EntryDate = EntryDateDateTimePicker.Value
+                        .PasswordConfirmation = PasswordConfirmTextBox.Text,
+                        .EntryDate = EntryDateDateTimePicker.Value
                     }
 
             Dim validationResult As EntityValidationResult = ValidationHelper.ValidateEntity(login)

@@ -50,8 +50,8 @@ Public Class MainForm
         End Try
 
     End Sub
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
+    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+        Close()
     End Sub
     Private Sub InvalidDecimalRangeButton_Click(sender As Object, e As EventArgs) Handles InvalidDecimalRangeButton.Click
         Dim movie As New MovieExample
@@ -87,7 +87,11 @@ Public Class MainForm
 
     Private Sub ValidateIsInListAndEnmButton_Click(sender As Object, e As EventArgs) Handles ValidateIsInListAndEnmButton.Click
         Dim f As New ListAndEnmForm
-        f.ShowDialog()
+        If f.ShowDialog() = DialogResult.OK Then
+            MessageBox.Show("Book entered")
+        Else
+            MessageBox.Show("Book not entered")
+        End If
     End Sub
 End Class
 '

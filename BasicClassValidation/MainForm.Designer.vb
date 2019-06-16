@@ -25,7 +25,7 @@ Partial Class MainForm
         Me.LoginButton = New System.Windows.Forms.Button()
         Me.SocialSecurityLoginButton = New System.Windows.Forms.Button()
         Me.ValidateSingleDateButton = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ExitButton = New System.Windows.Forms.Button()
         Me.InvalidDecimalRangeButton = New System.Windows.Forms.Button()
         Me.ValidateStudentModelButton = New System.Windows.Forms.Button()
         Me.ValidateIsInListAndEnmButton = New System.Windows.Forms.Button()
@@ -58,14 +58,14 @@ Partial Class MainForm
         Me.ValidateSingleDateButton.Text = "Validate single date"
         Me.ValidateSingleDateButton.UseVisualStyleBackColor = True
         '
-        'Button1
+        'ExitButton
         '
-        Me.Button1.Location = New System.Drawing.Point(294, 229)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.ExitButton.Location = New System.Drawing.Point(179, 229)
+        Me.ExitButton.Name = "ExitButton"
+        Me.ExitButton.Size = New System.Drawing.Size(75, 23)
+        Me.ExitButton.TabIndex = 4
+        Me.ExitButton.Text = "Exit"
+        Me.ExitButton.UseVisualStyleBackColor = True
         '
         'InvalidDecimalRangeButton
         '
@@ -98,14 +98,15 @@ Partial Class MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(397, 264)
+        Me.ClientSize = New System.Drawing.Size(277, 264)
         Me.Controls.Add(Me.ValidateIsInListAndEnmButton)
         Me.Controls.Add(Me.ValidateStudentModelButton)
         Me.Controls.Add(Me.InvalidDecimalRangeButton)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.ValidateSingleDateButton)
         Me.Controls.Add(Me.SocialSecurityLoginButton)
         Me.Controls.Add(Me.LoginButton)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "MainForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Start"
@@ -116,7 +117,7 @@ Partial Class MainForm
     Friend WithEvents LoginButton As Button
     Friend WithEvents SocialSecurityLoginButton As Button
     Friend WithEvents ValidateSingleDateButton As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents ExitButton As Button
     Friend WithEvents InvalidDecimalRangeButton As Button
     Friend WithEvents ValidateStudentModelButton As Button
     Friend WithEvents ValidateIsInListAndEnmButton As Button

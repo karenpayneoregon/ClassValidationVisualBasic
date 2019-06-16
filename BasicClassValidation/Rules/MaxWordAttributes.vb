@@ -11,7 +11,8 @@ Namespace Rules
             MyBase.New("{0} has to many words.")
             mMaxWords = maxWords
         End Sub
-        Protected Overrides Function IsValid(value As Object, validationContext As ValidationContext) As ValidationResult
+        Protected Overrides Function IsValid(
+            value As Object, validationContext As ValidationContext) As ValidationResult
 
             If value Is Nothing Then
                 Return ValidationResult.Success
@@ -25,6 +26,7 @@ Namespace Rules
 
             Dim errorMessage = FormatErrorMessage(validationContext.DisplayName)
             Return New ValidationResult(errorMessage)
+
         End Function
     End Class
 End Namespace
