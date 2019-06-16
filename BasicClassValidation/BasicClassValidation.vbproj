@@ -74,6 +74,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Book.vb" />
     <Compile Include="Classes\ContactType.vb" />
     <Compile Include="Classes\Country.vb" />
     <Compile Include="Classes\Customer.vb" />
@@ -87,11 +88,18 @@
     <Compile Include="Classes\SomeModel.vb" />
     <Compile Include="Classes\StudentModel.vb" />
     <Compile Include="Classes\Taxpayer.vb" />
+    <Compile Include="Enumerations\BookCategory.vb" />
     <Compile Include="Forms\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListAndEnumForm.Designer.vb">
+      <DependentUpon>ListAndEnumForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ListAndEnumForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\LoginForm.Designer.vb">
@@ -112,6 +120,7 @@
     <Compile Include="Forms\SocialSecurityForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="HelperModules\ObjectHelper.vb" />
     <Compile Include="Interfaces\IBaseEntity.vb" />
     <Compile Include="LanguageExtensions\StringExtensions.vb" />
     <Compile Include="LanguageExtensions\ValidatorExtensions.vb" />
@@ -145,9 +154,11 @@
     <Compile Include="Rules\ContactTypeAttribute.vb" />
     <Compile Include="Rules\CountryAttribute.vb" />
     <Compile Include="Rules\CustomerWeekendValidation.vb" />
+    <Compile Include="Rules\ListHasElements.vb" />
     <Compile Include="Rules\MaxWordAttributes.vb" />
     <Compile Include="Rules\MyDateAttribute.vb" />
     <Compile Include="Rules\NotABananaAttribute.vb" />
+    <Compile Include="Rules\RequiredEnumAttribute.vb" />
     <Compile Include="Validators\EntityValidationResult.vb" />
     <Compile Include="Validators\EntityValidator.vb" />
     <Compile Include="Validators\ValidationHelper.vb" />
@@ -155,6 +166,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListAndEnumForm.resx">
+      <DependentUpon>ListAndEnumForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.vb</DependentUpon>

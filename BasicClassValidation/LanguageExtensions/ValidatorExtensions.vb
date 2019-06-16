@@ -1,5 +1,6 @@
 ﻿Imports System.ComponentModel.DataAnnotations
 Imports System.Text
+Imports System.Text.RegularExpressions
 Imports BasicClassValidation.Validators
 
 Namespace LanguageExtensions
@@ -11,7 +12,7 @@ Namespace LanguageExtensions
         ''' <returns></returns>
         <Runtime.CompilerServices.Extension>
         Public Function SanitizedErrorMessage(sender As ValidationResult) As String
-            Return sender.ErrorMessage.SplitCamelCase()
+            Return Regex.Replace(sender.ErrorMessage.SplitCamelCase(), " {2,}", " ")
         End Function
         ''' <summary>
         ''' Place all validation messages into a string with each validation message on one line

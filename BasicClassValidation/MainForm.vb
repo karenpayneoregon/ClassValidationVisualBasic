@@ -84,5 +84,10 @@ Public Class MainForm
         End If
 
     End Sub
+
+    Private Sub ValidateIsInListAndEnmButton_Click(sender As Object, e As EventArgs) Handles ValidateIsInListAndEnmButton.Click
+        Dim f As New ListAndEnmForm
+        f.ShowDialog()
+    End Sub
 End Class
 '

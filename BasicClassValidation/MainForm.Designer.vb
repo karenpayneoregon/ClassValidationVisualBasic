@@ -28,6 +28,7 @@ Partial Class MainForm
         Me.Button1 = New System.Windows.Forms.Button()
         Me.InvalidDecimalRangeButton = New System.Windows.Forms.Button()
         Me.ValidateStudentModelButton = New System.Windows.Forms.Button()
+        Me.ValidateIsInListAndEnmButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'LoginButton
@@ -84,11 +85,21 @@ Partial Class MainForm
         Me.ValidateStudentModelButton.Text = "Valid Student model"
         Me.ValidateStudentModelButton.UseVisualStyleBackColor = True
         '
+        'ValidateIsInListAndEnmButton
+        '
+        Me.ValidateIsInListAndEnmButton.Location = New System.Drawing.Point(23, 171)
+        Me.ValidateIsInListAndEnmButton.Name = "ValidateIsInListAndEnmButton"
+        Me.ValidateIsInListAndEnmButton.Size = New System.Drawing.Size(231, 23)
+        Me.ValidateIsInListAndEnmButton.TabIndex = 7
+        Me.ValidateIsInListAndEnmButton.Text = "Validate Book"
+        Me.ValidateIsInListAndEnmButton.UseVisualStyleBackColor = True
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(397, 264)
+        Me.Controls.Add(Me.ValidateIsInListAndEnmButton)
         Me.Controls.Add(Me.ValidateStudentModelButton)
         Me.Controls.Add(Me.InvalidDecimalRangeButton)
         Me.Controls.Add(Me.Button1)
@@ -108,4 +119,5 @@ Partial Class MainForm
     Friend WithEvents Button1 As Button
     Friend WithEvents InvalidDecimalRangeButton As Button
     Friend WithEvents ValidateStudentModelButton As Button
+    Friend WithEvents ValidateIsInListAndEnmButton As Button
 End Class
