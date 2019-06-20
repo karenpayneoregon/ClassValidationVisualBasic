@@ -33,5 +33,16 @@ Namespace LanguageExtensions
             Return sb.ToString()
 
         End Function
+        <Runtime.CompilerServices.Extension>
+        Public Function ErrorItemList(sender As EntityValidationResult) As List(Of ErrorContainer)
+            Dim itemList As New List(Of ErrorContainer)
+
+            For Each errorItem As ValidationResult In sender.Errors
+                itemList.Add(New ErrorContainer() With {.PropertyName = errorItem.MemberNames.FirstOrDefault(), .ErrorMessage = errorItem.SanitizedErrorMessage})
+            Next
+
+            Return itemList
+
+        End Function
     End Module
 End Namespace

@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\CustomerLogin.vb" />
+    <Compile Include="Classes\ErrorContainer.vb" />
     <Compile Include="LanguageExtensions\StringExtensions.vb" />
     <Compile Include="LanguageExtensions\ValidatorExtensions.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

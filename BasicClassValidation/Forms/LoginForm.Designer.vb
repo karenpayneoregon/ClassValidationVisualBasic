@@ -23,6 +23,7 @@
         'Do not modify it using the code editor.
         <System.Diagnostics.DebuggerStepThrough()>
         Private Sub InitializeComponent()
+            Me.components = New System.ComponentModel.Container()
             Me.Label1 = New System.Windows.Forms.Label()
             Me.UserNameTextBox = New System.Windows.Forms.TextBox()
             Me.Label2 = New System.Windows.Forms.Label()
@@ -32,6 +33,8 @@
             Me.LogInButton = New System.Windows.Forms.Button()
             Me.EntryDateDateTimePicker = New System.Windows.Forms.DateTimePicker()
             Me.Label4 = New System.Windows.Forms.Label()
+            Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+            CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             '
             'Label1
@@ -49,6 +52,7 @@
             Me.UserNameTextBox.Name = "UserNameTextBox"
             Me.UserNameTextBox.Size = New System.Drawing.Size(200, 20)
             Me.UserNameTextBox.TabIndex = 1
+            Me.UserNameTextBox.Tag = "Name"
             Me.UserNameTextBox.Text = "karenpayneFromOregon"
             '
             'Label2
@@ -75,6 +79,7 @@
             Me.PasswordTextBox.Name = "PasswordTextBox"
             Me.PasswordTextBox.Size = New System.Drawing.Size(200, 20)
             Me.PasswordTextBox.TabIndex = 4
+            Me.PasswordTextBox.Tag = "Password"
             Me.PasswordTextBox.Text = "pass"
             '
             'PasswordConfirmTextBox
@@ -83,6 +88,7 @@
             Me.PasswordConfirmTextBox.Name = "PasswordConfirmTextBox"
             Me.PasswordConfirmTextBox.Size = New System.Drawing.Size(200, 20)
             Me.PasswordConfirmTextBox.TabIndex = 5
+            Me.PasswordConfirmTextBox.Tag = "PasswordConfirmation"
             Me.PasswordConfirmTextBox.Text = "pass"
             '
             'LogInButton
@@ -100,6 +106,7 @@
             Me.EntryDateDateTimePicker.Name = "EntryDateDateTimePicker"
             Me.EntryDateDateTimePicker.Size = New System.Drawing.Size(200, 20)
             Me.EntryDateDateTimePicker.TabIndex = 7
+            Me.EntryDateDateTimePicker.Tag = "EntryDate"
             '
             'Label4
             '
@@ -109,6 +116,10 @@
             Me.Label4.Size = New System.Drawing.Size(55, 13)
             Me.Label4.TabIndex = 8
             Me.Label4.Text = "Entry date"
+            '
+            'ErrorProvider1
+            '
+            Me.ErrorProvider1.ContainerControl = Me
             '
             'LoginForm
             '
@@ -128,6 +139,7 @@
             Me.Name = "LoginForm"
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
             Me.Text = "Login validation example"
+            CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
             Me.PerformLayout()
 
@@ -142,5 +154,6 @@
         Friend WithEvents LogInButton As Button
         Friend WithEvents EntryDateDateTimePicker As DateTimePicker
         Friend WithEvents Label4 As Label
+        Friend WithEvents ErrorProvider1 As ErrorProvider
     End Class
 End Namespace

@@ -122,6 +122,8 @@
     </Compile>
     <Compile Include="HelperModules\ObjectHelper.vb" />
     <Compile Include="Interfaces\IBaseEntity.vb" />
+    <Compile Include="Classes\ErrorContainer.vb" />
+    <Compile Include="LanguageExtensions\ControlExtensions.vb" />
     <Compile Include="LanguageExtensions\StringExtensions.vb" />
     <Compile Include="LanguageExtensions\ValidatorExtensions.vb" />
     <Compile Include="MainForm.Designer.vb">
