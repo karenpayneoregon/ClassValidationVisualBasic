@@ -7,7 +7,8 @@ Imports BasicClassValidation.Validators
 Namespace LanguageExtensions
     Public Module ValidatorExtensions
         ''' <summary>
-        ''' Separates tokens with a space e.g. ContactName becomes Contact Name
+        ''' Separates tokens with a space e.g. ContactName 
+        ''' becomes Contact Name
         ''' </summary>
         ''' <param name="sender"></param>
         ''' <returns></returns>
@@ -16,7 +17,8 @@ Namespace LanguageExtensions
             Return Regex.Replace(sender.ErrorMessage.SplitCamelCase(), " {2,}", " ")
         End Function
         ''' <summary>
-        ''' Place all validation messages into a string with each validation message on one line
+        ''' Place all validation messages into a string with 
+        ''' each validation message on one line
         ''' </summary>
         ''' <param name="sender"></param>
         ''' <returns></returns>
@@ -28,7 +30,6 @@ Namespace LanguageExtensions
 
             For Each errorItem As ValidationResult In sender.Errors
                 sb.AppendLine(errorItem.SanitizedErrorMessage)
-                Console.WriteLine($"Name: {errorItem.MemberNames.FirstOrDefault()} Count: {errorItem.MemberNames.Count()}")
             Next
 
             Return sb.ToString()
@@ -39,7 +40,11 @@ Namespace LanguageExtensions
             Dim itemList As New List(Of ErrorContainer)
 
             For Each errorItem As ValidationResult In sender.Errors
-                itemList.Add(New ErrorContainer() With {.PropertyName = errorItem.MemberNames.FirstOrDefault(), .ErrorMessage = errorItem.SanitizedErrorMessage})
+                itemList.Add(New ErrorContainer() With
+                {
+                    .PropertyName = errorItem.MemberNames.FirstOrDefault(),
+                    .ErrorMessage = errorItem.SanitizedErrorMessage
+                })
             Next
 
             Return itemList
