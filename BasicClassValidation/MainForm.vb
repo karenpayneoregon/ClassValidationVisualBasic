@@ -93,5 +93,10 @@ Public Class MainForm
             MessageBox.Show("Book not entered")
         End If
     End Sub
+
+    Private Sub ContactValidationUsingErrorProviderButton_Click(sender As Object, e As EventArgs) Handles ContactValidationUsingErrorProviderButton.Click
+        Dim f As New ContactForm
+        f.ShowDialog()
+    End Sub
 End Class
 '

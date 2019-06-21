@@ -89,6 +89,13 @@
     <Compile Include="Classes\StudentModel.vb" />
     <Compile Include="Classes\Taxpayer.vb" />
     <Compile Include="Enumerations\BookCategory.vb" />
+    <Compile Include="Classes\Contact.vb" />
+    <Compile Include="Forms\ContactForm.Designer.vb">
+      <DependentUpon>ContactForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ContactForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +131,7 @@
     <Compile Include="Interfaces\IBaseEntity.vb" />
     <Compile Include="Classes\ErrorContainer.vb" />
     <Compile Include="LanguageExtensions\ControlExtensions.vb" />
+    <Compile Include="LanguageExtensions\DataGridViewExtensions.vb" />
     <Compile Include="LanguageExtensions\StringExtensions.vb" />
     <Compile Include="LanguageExtensions\ValidatorExtensions.vb" />
     <Compile Include="MainForm.Designer.vb">
@@ -167,6 +175,9 @@
     <Compile Include="Validators\ValidationHelper.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\ContactForm.resx">
+      <DependentUpon>ContactForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>

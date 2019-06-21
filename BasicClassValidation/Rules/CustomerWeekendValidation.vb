@@ -18,7 +18,7 @@ Namespace Rules
     Public Class WeekendDateNotPermittedAttribute
         Inherits ValidationAttribute
 
-        Public Overrides Function IsValid(ByVal senderDate As Object) As Boolean
+        Public Overrides Function IsValid(senderDate As Object) As Boolean
             Dim d As DateTime = Convert.ToDateTime(senderDate)
             If d.DayOfWeek = DayOfWeek.Saturday OrElse d.DayOfWeek = DayOfWeek.Sunday Then
                 Return False

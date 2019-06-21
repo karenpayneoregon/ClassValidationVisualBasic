@@ -45,14 +45,12 @@ namespace Sample1
             }
             else
             {
-                Console.WriteLine(validationResult.ErrorMessageList());
                 MessageBox.Show(validationResult.ErrorMessageList());
             }
         }
         private void Form1_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = _bsContacts;
-
         }
     }
 }

@@ -29,6 +29,7 @@ Partial Class MainForm
         Me.InvalidDecimalRangeButton = New System.Windows.Forms.Button()
         Me.ValidateStudentModelButton = New System.Windows.Forms.Button()
         Me.ValidateIsInListAndEnmButton = New System.Windows.Forms.Button()
+        Me.ContactValidationUsingErrorProviderButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'LoginButton
@@ -94,11 +95,21 @@ Partial Class MainForm
         Me.ValidateIsInListAndEnmButton.Text = "Validate Book"
         Me.ValidateIsInListAndEnmButton.UseVisualStyleBackColor = True
         '
+        'ContactValidationUsingErrorProviderButton
+        '
+        Me.ContactValidationUsingErrorProviderButton.Location = New System.Drawing.Point(23, 200)
+        Me.ContactValidationUsingErrorProviderButton.Name = "ContactValidationUsingErrorProviderButton"
+        Me.ContactValidationUsingErrorProviderButton.Size = New System.Drawing.Size(231, 23)
+        Me.ContactValidationUsingErrorProviderButton.TabIndex = 8
+        Me.ContactValidationUsingErrorProviderButton.Text = "Error Provider validate Contact"
+        Me.ContactValidationUsingErrorProviderButton.UseVisualStyleBackColor = True
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(277, 264)
+        Me.Controls.Add(Me.ContactValidationUsingErrorProviderButton)
         Me.Controls.Add(Me.ValidateIsInListAndEnmButton)
         Me.Controls.Add(Me.ValidateStudentModelButton)
         Me.Controls.Add(Me.InvalidDecimalRangeButton)
@@ -121,4 +132,5 @@ Partial Class MainForm
     Friend WithEvents InvalidDecimalRangeButton As Button
     Friend WithEvents ValidateStudentModelButton As Button
     Friend WithEvents ValidateIsInListAndEnmButton As Button
+    Friend WithEvents ContactValidationUsingErrorProviderButton As Button
 End Class
