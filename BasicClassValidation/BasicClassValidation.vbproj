@@ -85,6 +85,7 @@
     <Compile Include="Classes\Movie.vb" />
     <Compile Include="Classes\Person.vb" />
     <Compile Include="Classes\PersonBase.vb" />
+    <Compile Include="Classes\Singleton.vb" />
     <Compile Include="Classes\SomeModel.vb" />
     <Compile Include="Classes\StudentModel.vb" />
     <Compile Include="Classes\Taxpayer.vb" />
