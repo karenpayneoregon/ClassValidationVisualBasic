@@ -22,7 +22,7 @@ namespace NetCoreUnitTestProject
     {
 
         [TestMethod]
-        [TestTraits(Trait.Books)]
+        [TestTraits(Trait.Annotations)]
         public void ValidateBook_Good_Test()
         {
             // arrange
@@ -36,13 +36,13 @@ namespace NetCoreUnitTestProject
         }
 
         [TestMethod]
-        [TestTraits(Trait.Books)]
+        [TestTraits(Trait.Annotations)]
         public void ValidateBook_NoCategory_Test()
         {
             // arrange
             Book book = TheBook;
             book.Category = null;
-            string expected = "Category is required";
+            const string expected = "Category is required";
 
             // act
             EntityValidationResult result = ValidationHelper.ValidateEntity(book);
@@ -53,13 +53,13 @@ namespace NetCoreUnitTestProject
                 .IsTrue();
         }
         [TestMethod]
-        [TestTraits(Trait.Books)]
+        [TestTraits(Trait.Annotations)]
         public void ValidateBook_NoIsbn_Test()
         {
             // arrange
             Book book = TheBook;
             book.ISBN = "";
-            string expected = "ISBN is required";
+            const string expected = "ISBN is required";
 
             // act
             EntityValidationResult result = ValidationHelper.ValidateEntity(book);
@@ -71,7 +71,7 @@ namespace NetCoreUnitTestProject
 
         }
         [TestMethod]
-        [TestTraits(Trait.Books)]
+        [TestTraits(Trait.Annotations)]
         public void ValidateBook_EmptyBook_Test()
         {
             // arrange

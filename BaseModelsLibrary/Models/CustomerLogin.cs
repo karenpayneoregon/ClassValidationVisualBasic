@@ -26,8 +26,7 @@ namespace BaseModelsLibrary.Models
         [StringLength(12, MinimumLength = 6)]
         public string Password { get; set; }
 
-        [Compare(nameof(Password), 
-            ErrorMessage = "Passwords do not match, please try again")]
+        [Compare(nameof(Password), ErrorMessage = "Passwords do not match, please try again")]
         [StringLength(12, MinimumLength = 6)]
         public string PasswordConfirmation { get; set; }
 

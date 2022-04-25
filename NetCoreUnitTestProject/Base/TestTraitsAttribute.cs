@@ -12,7 +12,8 @@ namespace NetCoreUnitTestProject.Base
         /// </summary>
         PlaceHolder,
         Annotations,
-        Books
+        Books,
+        AnnotationsHelpers
     }
     /// <summary>
     /// Declarative class for using Trait enum about for traits on test method.

@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 // ReSharper disable once CheckNamespace
 namespace NetCoreUnitTestProject
 {
-    public partial class BooksTests
+    public partial class TaxpayerTests
     {
         [TestInitialize]
         public void Initialization()
@@ -27,16 +27,11 @@ namespace NetCoreUnitTestProject
             TestResults = new List<TestContext>();
         }
 
-        public static Book TheBook => new ()
+        public Taxpayer TheTaxpayer = new()
         {
-            Title = "Gone with the wind",
-            ISBN = "9780024894403",
-            Category = BookCategory.Romance,
-            NotesList = new List<string>()
-            {
-                "Few books evoke the Civil War-era South " + 
-                "so powerfully, compellingly, and iconically."
-            }
+            FirstName = "Mary",
+            LastName = "Smith",
+            SSN = "205661234"
         };
 
     }

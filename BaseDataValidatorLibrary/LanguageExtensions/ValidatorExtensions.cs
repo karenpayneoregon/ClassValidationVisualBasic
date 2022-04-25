@@ -36,7 +36,8 @@ namespace BaseDataValidatorLibrary.LanguageExtensions
                 => Regex.Replace(item, @"\s+", " ");
 
 
-            return sender.Errors.Select(validationResult => RemoveSpaces(validationResult.ErrorMessage.SplitCamelCase())).ToList();
+            return sender.Errors.Select(validationResult 
+                => RemoveSpaces(validationResult.ErrorMessage.SplitCamelCase())).ToList();
         }
 
     }
