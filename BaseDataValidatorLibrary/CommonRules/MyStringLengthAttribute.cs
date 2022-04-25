@@ -17,14 +17,14 @@ namespace BaseDataValidatorLibrary.CommonRules
         {
             string val = Convert.ToString(value);
 
-            if (val.Length < base.MinimumLength)
+            if (val!.Length < MinimumLength)
             {
-                base.ErrorMessage = "Minimum length should be 3";
+                ErrorMessage = "Minimum length should be 3";
             }
 
-            if (val.Length > base.MaximumLength)
+            if (val.Length > MaximumLength)
             {
-                base.ErrorMessage = "Maximum length should be 6";
+                ErrorMessage = "Maximum length should be 6";
             }
 
             return base.IsValid(value);

@@ -13,7 +13,7 @@ Namespace Classes
         <RequiredEnum(ErrorMessage:="{0} is required.")>
         Public Property Category() As BookCategory
 
-        <ListHasElements(ErrorMessage:="{0} must contain at lease one note")>
+        <ListHasElements(ErrorMessage:="{0} must contain at least one note")>
         Public Property NotesList() As List(Of String)
 
     End Class

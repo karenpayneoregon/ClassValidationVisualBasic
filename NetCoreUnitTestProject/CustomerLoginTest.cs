@@ -76,7 +76,7 @@ namespace NetCoreUnitTestProject
 
             var customerLogin = CustomerLoginValid;
             customerLogin.Name = "WayTooLongName";
-            customerLogin.PasswordConfirmation = "@password";
+            customerLogin.PasswordConfirmation = "@password"; // casing mismatch
 
             // act
             EntityValidationResult result = ValidationHelper.ValidateEntity(customerLogin);
