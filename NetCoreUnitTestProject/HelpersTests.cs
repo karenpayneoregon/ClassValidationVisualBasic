@@ -34,7 +34,7 @@ namespace NetCoreUnitTestProject
             Book book = new();
 
             // act
-            var result = ValidationHelper.GetRequiredErrorMessages(book);
+            var result = Model.GetRequiredErrorMessages(book);
 
             // assert
             CollectionAssert.AreEqual(

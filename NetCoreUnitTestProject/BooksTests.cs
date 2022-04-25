@@ -29,7 +29,7 @@ namespace NetCoreUnitTestProject
             Book book = TheBook;
             
             // act
-            EntityValidationResult validationResult = ValidationHelper.ValidateEntity(book);
+            EntityValidationResult validationResult = Model.Validate(book);
 
             // assert
             Check.That(validationResult.HasError).IsFalse();
@@ -45,7 +45,7 @@ namespace NetCoreUnitTestProject
             const string expected = "Category is required";
 
             // act
-            EntityValidationResult result = ValidationHelper.ValidateEntity(book);
+            EntityValidationResult result = Model.Validate(book);
 
             // assert
             Check.That(result.Errors.Any(validationResult => 
@@ -62,7 +62,7 @@ namespace NetCoreUnitTestProject
             const string expected = "ISBN is required";
 
             // act
-            EntityValidationResult result = ValidationHelper.ValidateEntity(book);
+            EntityValidationResult result = Model.Validate(book);
 
             // assert
             Check.That(result.Errors.Any(validationResult => 
@@ -78,7 +78,7 @@ namespace NetCoreUnitTestProject
             Book book = new Book();
 
             // act
-            EntityValidationResult result = ValidationHelper.ValidateEntity(book);
+            EntityValidationResult result = Model.Validate(book);
 
 
             // assert

@@ -33,7 +33,7 @@ namespace NetCoreUnitTestProject
             var contact = TheContact;
 
             // act
-            EntityValidationResult validationResult = ValidationHelper.ValidateEntity(contact);
+            EntityValidationResult validationResult = Model.Validate(contact);
             
             // assert
             Check.That(validationResult.HasError).IsFalse();
@@ -57,7 +57,7 @@ namespace NetCoreUnitTestProject
 
 
             // act
-            EntityValidationResult validationResult = ValidationHelper.ValidateEntity(contact);
+            EntityValidationResult validationResult = Model.Validate(contact);
 
             // assert
             CollectionAssert.AreEqual(expected, validationResult.ErrorMessagesList());

@@ -34,38 +34,13 @@ namespace NetCoreUnitTestProject
             Taxpayer taxpayer = TheTaxpayer;
 
             // act
-            EntityValidationResult validationResult = ValidationHelper.ValidateEntity(taxpayer);
+            EntityValidationResult validationResult = Model.Validate(taxpayer);
 
             // assert
             Check.That(validationResult.HasError).IsFalse();
         }
 
-        [TestMethod]
-        [TestTraits(Trait.AnnotationsHelpers)]
-        public void RequiredErrorMessages_Test()
-        {
-            // arrange
-            Dictionary<string, string> expected = new Dictionary<string, string>()
-            {
-                ["Title"] = "{0} is required",
-                ["ISBN"] = "{0} is required",
-                ["Category"] = "{0} is required",
-            };
 
-            
-            Book book = new ();
-
-            // act
-            var result = ValidationHelper.GetRequiredErrorMessages(book);
-
-            // assert
-            CollectionAssert.AreEqual(
-                expected.OrderBy(kv => kv.Key).ToList(),
-                result.OrderBy(kv => kv.Key).ToList()
-            );
-
-
-        }
     }
 
 }

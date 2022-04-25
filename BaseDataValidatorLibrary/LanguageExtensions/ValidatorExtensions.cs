@@ -15,19 +15,19 @@ namespace BaseDataValidatorLibrary.LanguageExtensions
                 return Regex.Replace(item, @"\s+", " ");
             }
 
-            var sb = new StringBuilder();
+            StringBuilder builder = new ();
             
             if (title)
             {
-                sb.AppendLine("Validation issues");
+                builder.AppendLine("Validation issues");
             }
 
             foreach (var validationResult in sender.Errors)
             {
-                sb.AppendLine(RemoveSpaces(validationResult.ErrorMessage.SplitCamelCase()));
+                builder.AppendLine(RemoveSpaces(validationResult.ErrorMessage.SplitCamelCase()));
             }
 
-            return sb.ToString();
+            return builder.ToString();
         }
 
         public static List<string> ErrorMessagesList(this EntityValidationResult sender)

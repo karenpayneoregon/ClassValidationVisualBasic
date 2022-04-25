@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace BaseDataValidatorLibrary.Helpers
 {
-    public class ValidationHelper
+    public class Model
     {
         /// <summary>
         /// Validate entity against validation rules
@@ -12,7 +12,7 @@ namespace BaseDataValidatorLibrary.Helpers
         /// <typeparam name="T"></typeparam>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public static EntityValidationResult ValidateEntity<T>(T entity) where T : class 
+        public static EntityValidationResult Validate<T>(T entity) where T : class 
             => (new EntityValidator<T>()).Validate(entity);
 
         /// <summary>

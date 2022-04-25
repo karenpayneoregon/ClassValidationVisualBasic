@@ -21,7 +21,7 @@ namespace NetCoreUnitTestProject
             var customerLogin = CustomerLoginValid;
 
             // act
-            EntityValidationResult validationResult = ValidationHelper.ValidateEntity(customerLogin);
+            EntityValidationResult validationResult = Model.Validate(customerLogin);
 
 
             // assert
@@ -40,7 +40,7 @@ namespace NetCoreUnitTestProject
             customerLogin.EntryDate = new DateTime(2022, 4, 24);
 
             // act
-            EntityValidationResult result = ValidationHelper.ValidateEntity(customerLogin);
+            EntityValidationResult result = Model.Validate(customerLogin);
             
             // assert 
             Check.That(result.Errors.Any(validationResult => validationResult.ErrorMessage == expected)).IsTrue();
@@ -56,7 +56,7 @@ namespace NetCoreUnitTestProject
             customerLogin.PasswordConfirmation = "@password";
 
             // act
-            EntityValidationResult result = ValidationHelper.ValidateEntity(customerLogin);
+            EntityValidationResult result = Model.Validate(customerLogin);
 
             // assert 
             Check.That(result.Errors.Any(validationResult => validationResult.ErrorMessage!.Contains(expected))).IsTrue();
@@ -78,7 +78,7 @@ namespace NetCoreUnitTestProject
             customerLogin.PasswordConfirmation = "@password"; // casing mismatch
 
             // act
-            EntityValidationResult result = ValidationHelper.ValidateEntity(customerLogin);
+            EntityValidationResult result = Model.Validate(customerLogin);
 
             // assert 
             var validation = result.ErrorMessagesList()
