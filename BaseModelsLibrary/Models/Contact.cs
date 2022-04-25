@@ -46,7 +46,7 @@ namespace BaseModelsLibrary.Models
         /// [RegularExpression("^(?!0+$)(\\+\\d{1,3}[- ]?)?(?!0+$)\\d{10,15}$", ErrorMessage = "Please enter valid phone no.")]
         /// But in this case there is a custom rule to keep phone number to 10 characters
         /// </remarks>
-        [Required(ErrorMessage = "Mobile no. is required")]
+        [Required(ErrorMessage = "Mobile number is required")]
         [CheckPhoneValidation(ErrorMessage = "{0} must be no longer than 10")]
         public string Phone { get; set; }
 
