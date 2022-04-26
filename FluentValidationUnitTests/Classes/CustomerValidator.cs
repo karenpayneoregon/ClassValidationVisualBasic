@@ -51,7 +51,7 @@ namespace FluentValidationUnitTests.Classes
 
             Transform(
                 from: customer => customer.SocialSecurity,
-                to: value => value.IsSSNOverlyValid()).Must(value => value);
+                to: value => value.IsSSNValid()).Must(value => value);
 
             RuleFor(customer => customer.BirthDate).GreaterThan(new DateTime(1932,1,1));
         }
