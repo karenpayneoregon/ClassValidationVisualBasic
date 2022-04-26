@@ -8,7 +8,7 @@ using BaseModelsLibrary.Rules;
 
 namespace BaseModelsLibrary.Models
 {
-    public class CustomerLogin
+    public partial class CustomerLogin
     {
 
         [Required(ErrorMessage = "{0} is required"), DataType(DataType.Text)]
