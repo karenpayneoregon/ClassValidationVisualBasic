@@ -139,6 +139,21 @@ namespace FluentValidationUnitTests
             // assert
             result.ShouldHaveValidationErrorFor(customer => customer.BirthDate);
         }
+
+        [TestMethod]
+        [TestTraits(Trait.FluentValidation)]
+        public async Task CustomerSocialSecurityNumberInvalidTest()
+        {
+            // arrange
+            Customer thisCustomer = ValidCustomer;
+            thisCustomer.SocialSecurity = "219-09-9999";
+
+            // act
+            var result = await CustomerValidator.TestValidateAsync(thisCustomer);
+
+            // assert
+            result.ShouldHaveValidationErrorFor(customer => customer.SocialSecurity);
+        }
     }
 }
 

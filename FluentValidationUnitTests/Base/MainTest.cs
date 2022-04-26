@@ -42,6 +42,7 @@ namespace FluentValidationUnitTests
             Email = "kp@gmail.com",
             CreditLimit = 9999,
             Discount = 10, // TODO
+            SocialSecurity = "205-55-1234",
             HasDiscount = true,
             Address = "101 Microsoft Way",
             Postcode = "97209"

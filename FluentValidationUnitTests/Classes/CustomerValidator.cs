@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BaseModelsLibrary.Models;
 using FluentValidation;
+using FluentValidationUnitTests.LanguageExtensions;
 
 namespace FluentValidationUnitTests.Classes
 {
@@ -44,8 +45,13 @@ namespace FluentValidationUnitTests.Classes
                 .Must(HasValidPostcode)
                 .WithMessage("Please specify a valid postcode");
 
-            Transform(from: x => x.Pin, to: value => int.TryParse(value, out int val) ? (int?)val : null)
+            Transform(from: customer => customer.Pin, to: value => 
+                    int.TryParse(value, out int val) ? (int?)val : null)
                 .GreaterThan(8888);
+
+            Transform(
+                from: customer => customer.SocialSecurity,
+                to: value => value.IsSSNOverlyValid()).Must(value => value);
 
             RuleFor(customer => customer.BirthDate).GreaterThan(new DateTime(1932,1,1));
         }

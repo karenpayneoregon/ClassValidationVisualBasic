@@ -14,6 +14,7 @@ namespace FluentValidationUnitTests.Classes
         public string Address { get; set; }
         public string Postcode { get; set; }
         public string Pin { get; set; }
+        public string SocialSecurity { get; set; }
         public DateTime BirthDate { get; set; }
 
         public override string ToString() => $"{FirstName} {LastName}";
