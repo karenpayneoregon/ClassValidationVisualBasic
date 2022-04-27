@@ -27,7 +27,7 @@ namespace ValidationSample.Models
 
         public Genre Genre { get; set; }
 
-        public bool Preorder { get; set; }
+        public bool PreOrder { get; set; }
     }
 
 }
