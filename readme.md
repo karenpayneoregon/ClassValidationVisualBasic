@@ -120,6 +120,10 @@ Check.That(result.IsValid).IsFalse();
 
 ## ASP.NET Core Razor
 
+*Some inputs use default validation while others have custom rules.*
+
+![Create Movie](ValidationSample/assets/createMovie.png)
+
 In markup, the following uses `asp-validation-for` tag helper, see [Validation Tag Helpers](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/working-with-forms?view=aspnetcore-6.0#the-validation-tag-helpers) documentation for more information on usage..
 
 ```asp
@@ -204,9 +208,11 @@ public async Task<IActionResult> OnPostAsync()
 }
 ```
 
+That's pretty much the basics for ASP.NET Core.
 
+## Unit test examples
 
-
+The following sections will demonstrate using mocked data in unit test methods.
 
 
 
