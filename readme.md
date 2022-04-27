@@ -118,10 +118,91 @@ Check.That(result.IsValid).IsFalse();
 - All code to validate are in a class project in this solution under [BaseDataValidatorLibrary](https://github.com/karenpayneoregon/ClassValidationVisualBasic/tree/net-core-version/BaseDataValidatorLibrary).
 - For a list of stock validation attributes see [System.ComponentModel.DataAnnotations Namespace](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-5.0).
 
+## ASP.NET Core Razor
+
+In markup, the following uses `asp-validation-for` tag helper, see [Validation Tag Helpers](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/working-with-forms?view=aspnetcore-6.0#the-validation-tag-helpers) documentation for more information on usage..
+
+```asp
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Movie.Title" class="control-label"></label>
+                <input asp-for="Movie.Title" class="form-control" />
+                <span asp-validation-for="Movie.Title" class="text-danger"></span>
+            </div>
+
+            <!-- <snippet_ReleaseDate> -->
+            <div class="form-group">
+                <label asp-for="Movie.ReleaseDate" class="control-label"></label>
+                <input asp-for="Movie.ReleaseDate" class="form-control" />
+                <span asp-validation-for="Movie.ReleaseDate" class="text-danger"></span>
+            </div>
+            <!-- </snippet_ReleaseDate> -->
+
+            <div class="form-group">
+                <label asp-for="Movie.Description" class="control-label"></label>
+                <input asp-for="Movie.Description" class="form-control" />
+                <span asp-validation-for="Movie.Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Movie.Price" class="control-label"></label>
+                <input asp-for="Movie.Price" class="form-control" />
+                <span asp-validation-for="Movie.Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Movie.Genre" class="control-label"></label>
+                <select asp-for="Movie.Genre" asp-items="@(Html.GetEnumSelectList<Genre>())" class="form-control"></select>
+                <span asp-validation-for="Movie.Genre" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <input asp-for="Movie.PreOrder" />
+                    <label asp-for="Movie.PreOrder"></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+```
+
+In code behind the model `Movies` is setup as follows [BindProperty](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute?view=aspnetcore-5.0).
+
+**BindPropertyAttribute**
+An attribute that can specify a model name or type of IModelBinder to use for binding the associated property.
+```csharp
+[BindProperty]
+public Movie Movie { get; set; }
+```
+
+In the Post action, [ModelState.IsValid](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation?view=aspnetcore-5.0) validates or invalidates properties in the model.
+
+**Model state** represents errors that come from two subsystems: model binding and model validation. Errors that originate from model binding are generally data conversion errors. 
 
 
+```csharp
+public async Task<IActionResult> OnPostAsync()
+{
+    if (!ModelState.IsValid)
+    {
+        return Page();
+    }
 
+    _context.Movies.Add(Movie);
+    await _context.SaveChangesAsync();
 
+    return RedirectToPage("./Index");
+}
+```
 
 
 

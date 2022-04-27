@@ -19,7 +19,6 @@ namespace ValidationSample.Pages.Movies
         [BindProperty]
         public Movie Movie { get; set; }
 
-        // <snippet_OnPostAsync>
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -32,9 +31,7 @@ namespace ValidationSample.Pages.Movies
 
             return RedirectToPage("./Index");
         }
-        // </snippet_OnPostAsync>
 
-        // <snippet_TryValidate>
         public async Task<IActionResult> OnPostTryValidateAsync()
         {
             var modifiedReleaseDate = DateTime.Now.Date;
@@ -51,6 +48,6 @@ namespace ValidationSample.Pages.Movies
 
             return RedirectToPage("./Index");
         }
-        // </snippet_TryValidate>
+
     }
 }
