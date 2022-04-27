@@ -46,7 +46,7 @@ namespace FluentValidationUnitTests.Classes
                 .WithMessage("Please specify a valid postcode");
 
             Transform(from: customer => customer.Pin, to: value => 
-                    int.TryParse(value, out int val) ? (int?)val : null)
+                    int.TryParse(value, out int result) ? (int?)result : null)
                 .GreaterThan(8888);
 
             Transform(
