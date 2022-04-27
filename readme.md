@@ -22,6 +22,116 @@ With ASP.NET Core using [data annotations](https://docs.microsoft.com/en-us/dotn
 
 The ValidationAttribute class enforces validation, based on the metadata that is associated with the data table. You can override this class to create custom validation attributes.
 
+**Example**
+
+```csharp
+public class Person
+{
+    public int Id { get; set; }
+    [RegularExpression("^.{3,}$", ErrorMessage = "{0} Minimum 3 characters required")]
+    [Required(ErrorMessage = "{0} Required")]
+    [StringLength(30, MinimumLength = 3, ErrorMessage = "Invalid {0}")]
+    public string FirstName { get; set; }
+
+    [RegularExpression("^.{3,}$", ErrorMessage = "{0} Minimum 3 characters required")]
+    [Required(ErrorMessage = "{0} Required")]
+    [StringLength(30, MinimumLength = 3, ErrorMessage = "Invalid {0}")]
+    public string LastName { get; set; }
+
+    [ValidateYears(ErrorMessage = "Valid range for BirthDate is from {0} to {1}")]
+    [Required(ErrorMessage = "{0} Required")]
+    public DateTime BirthDate { get; set; }
+}
+```
+| Property        |   Attribute    |   Description |
+|:------------- |:-------------|:-------------|
+| FirstName | RegularExpression | Minimum 3 characters required |
+|       | Required | Must have a value couple with above, minimum of three characters |
+|       | StringLength | Min of three characters, max of 30 characters |
+| LastName | RegularExpression | Minimum 3 characters required |
+|       | Required | Must have a value couple with above, minimum of three characters |
+|       | StringLength | Min of three characters, max of 30 characters |
+| BirthDate | ValidateYears | Custom attribute for range of years |
+
+To validate an instance of `Person`, set up a unit test method where all properties are valid.
+
+```csharp
+[TestMethod]
+[TestTraits(Trait.Annotations)]
+public void ValidPerson()
+{
+
+    // arrange
+    Person person = new ()
+    {
+        FirstName = "Mike",
+        LastName = "Flowers",
+        BirthDate = new DateTime(1932, Now.Month, Now.Day)
+    };
+
+    // act
+    EntityValidationResult result = Model.Validate(person);
+
+    // assert
+    Check.That(result.IsValid).IsTrue();
+}
+```
+
+Next setup another test method, in this case BirthDate is out of range.
+
+```csharp
+[TestMethod]
+[TestTraits(Trait.Annotations)]
+public void InvalidDateValidPerson()
+{
+    // arrange
+    DateTime date = new (2022, 4, 27);
+
+    Person person = new ()
+    {
+        FirstName = "Mike",
+        LastName = "Flowers",
+        BirthDate = new DateTime(1931, date.Month, date.Day)
+    };
+
+    // act
+    EntityValidationResult result = Model.Validate(person);
+
+    // assert
+    Check.That(result.IsValid).IsFalse();
+
+}
+```
+
+In both test, the following code validates an instance of `person`
+
+```csharp
+EntityValidationResult result = Model.Validate(person);
+```
+
+Followed by asking if the instance of `person` is valid by `IsValid` method. Check is from [NFluent](https://www.n-fluent.net/).
+
+```csharp
+Check.That(result.IsValid).IsFalse();
+```
+
+- All code to validate are in a class project in this solution under [BaseDataValidatorLibrary](https://github.com/karenpayneoregon/ClassValidationVisualBasic/tree/net-core-version/BaseDataValidatorLibrary).
+- For a list of stock validation attributes see [System.ComponentModel.DataAnnotations Namespace](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-5.0).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## FluentValidation

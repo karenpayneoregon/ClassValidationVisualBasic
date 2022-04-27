@@ -1,11 +1,14 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using BaseDataValidatorLibrary.Helpers;
 using BaseModelsLibrary.Models;
 using NetCoreUnitTestProject.Base;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using NFluent;
 using static System.DateTime;
+using BaseDataValidatorLibrary.LanguageExtensions;
 
 namespace NetCoreUnitTestProject
 {
@@ -81,6 +84,13 @@ namespace NetCoreUnitTestProject
                 Model.GetValidateYearsErrorMessages(person)
                     .FirstOrDefault();
 
+
+            var errorMessage = person.GetAttribute<RequiredAttribute>("BirthDate").ErrorMessage;
+
+            // raw
+            Console.WriteLine(errorMessage);
+            // formatted 
+            Console.WriteLine(errorMessage, "Birthdate");
 
             // assert
             Check.That(birthdayErrorInformation.ToString())
