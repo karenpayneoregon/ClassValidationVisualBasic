@@ -1,1 +1,0 @@
-﻿In this folder place any rules that would be used in more than one project, otherwise rules go in the project they are used.

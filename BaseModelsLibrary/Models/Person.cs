@@ -17,7 +17,8 @@ namespace BaseModelsLibrary.Models
         [StringLength(30, MinimumLength = 3, ErrorMessage = "Invalid {0}")]
         public string LastName { get; set; }
 
-        [ValidateYears(ErrorMessage = "Valid range for BirthDate is {0} and {1}")]
+        [ValidateYears(ErrorMessage = "Valid range for BirthDate is from {0} to {1}")]
+        [Required(ErrorMessage = "{0} Required")]
         public DateTime BirthDate { get; set; }
     }
 }

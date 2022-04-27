@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
+using BaseDataValidatorLibrary.Classes;
+using BaseDataValidatorLibrary.CommonRules;
 
 namespace BaseDataValidatorLibrary.Helpers
 {
@@ -42,6 +44,35 @@ namespace BaseDataValidatorLibrary.Helpers
             }
 
             return dictionary;
+        }
+        public static List<ValidateYearsDetails> GetValidateYearsErrorMessages<T>(T sender)
+        {
+
+            List<ValidateYearsDetails> list = new ();
+            var type = typeof(T);
+            PropertyInfo[] propertyInfo = type.GetProperties();
+
+            foreach (PropertyInfo prop in propertyInfo)
+            {
+                object[] attributes = prop.GetCustomAttributes(true);
+
+                foreach (var attribute in attributes)
+                {
+                    if (attribute is not ValidateYearsAttribute currentAttribute) continue;
+
+                    list.Add(new ValidateYearsDetails()
+                        {
+                            PropertyName = prop.Name,  
+                            ErrorMessage = currentAttribute.ErrorMessage,
+                            Min = currentAttribute._minValue,
+                            Max = currentAttribute._maxValue
+                        }
+                    );
+                    
+                }
+            }
+
+            return list;
         }
     }
 }

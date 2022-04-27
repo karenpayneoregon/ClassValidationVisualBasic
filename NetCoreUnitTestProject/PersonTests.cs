@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using BaseDataValidatorLibrary.Helpers;
 using BaseModelsLibrary.Models;
 using NetCoreUnitTestProject.Base;
@@ -39,11 +40,13 @@ namespace NetCoreUnitTestProject
         public void InvalidDateValidPerson()
         {
             // arrange
+            DateTime date = new (2022, 4, 27);
+
             Person person = new ()
             {
                 FirstName = "Mike",
                 LastName = "Flowers",
-                BirthDate = new DateTime(1931, Now.Month, Now.Day)
+                BirthDate = new DateTime(1931, date.Month, date.Day)
             };
 
             // act
@@ -51,6 +54,37 @@ namespace NetCoreUnitTestProject
 
             // assert
             Check.That(result.IsValid).IsFalse();
+
+        }
+
+        /// <summary>
+        /// For <see cref="Model.GetValidateYearsErrorMessages(T)"/>
+        /// </summary>
+        [TestMethod]
+        [TestTraits(Trait.Annotations)]
+        public void ValidateYearsInformationInvalidDateValidPerson()
+        {
+
+
+            // arrange
+            DateTime date = new(2022, 4, 27);
+
+            Person person = new()
+            {
+                FirstName = "Mike",
+                LastName = "Flowers",
+                BirthDate = new DateTime(1931, date.Month, date.Day)
+            };
+
+            // act
+            var birthdayErrorInformation = 
+                Model.GetValidateYearsErrorMessages(person)
+                    .FirstOrDefault();
+
+
+            // assert
+            Check.That(birthdayErrorInformation.ToString())
+                .Equals("Valid range for BirthDate is from 1932 to 2022");
 
         }
     }
