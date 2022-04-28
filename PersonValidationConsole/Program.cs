@@ -76,7 +76,7 @@ namespace PersonValidationConsole
         [ModuleInitializer]
         public static void Init()
         {
-            Console.Title = "Verbs code samples";
+            Console.Title = "Code samples";
         }
     }
 }
