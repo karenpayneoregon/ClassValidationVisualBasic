@@ -294,11 +294,86 @@ For this Visual Studio solution
 - All `validation methods`, extension methods and custom attribute classes are in `BaseDataValidationLibrary`
 - All `Classes/models` reside in the project `BaseModelsLibrary`
 
-Let's look at testing a Book.
+Let's look at testing a Book. There is a test class BooksTest marked as a partial class, the test are in the root folder of the test project while the second part is in the Base folder.
+
+![img](assets/books.png)
+
+In the base folder we setup a valid Book instance for use in test methods in the root folder.
+
+![i](assets/books1.png)
 
 
+**First test**
+
+Validates the model using valid data
+
+```csharp
+[TestMethod]
+[TestTraits(Trait.Annotations)]
+public void ValidateBook_Good_Test()
+{
+    // arrange
+    Book book = TheBook;
+    
+    // act
+    EntityValidationResult validationResult = Model.Validate(book);
+
+    // assert
+    Check.That(validationResult.HasError).IsFalse();
+}
+```
 
 
+**Second test**
+
+Ensure that the model is not valid as the `Category` property is `null`.
+
+```csharp
+[TestMethod]
+[TestTraits(Trait.Annotations)]
+public void ValidateBook_NoCategory_Test()
+{
+    // arrange
+    Book book = TheBook;
+    book.Category = null;
+    const string expected = "Category is required";
+
+    // act
+    EntityValidationResult result = Model.Validate(book);
+
+    // assert
+    Check.That(result.Errors.Any(validationResult => 
+        validationResult.ErrorMessage!.Contains(expected)))
+        .IsTrue();
+}
+```
+
+**Third test**
+
+Ensure that the model is not valid as the `ISBN` property is `null`.
+
+```csharp
+[TestMethod]
+[TestTraits(Trait.Annotations)]
+public void ValidateBook_NoIsbn_Test()
+{
+    // arrange
+    Book book = TheBook;
+    book.ISBN = "";
+    const string expected = "ISBN is required";
+
+    // act
+    EntityValidationResult result = Model.Validate(book);
+
+    // assert
+    Check.That(result.Errors.Any(validationResult => 
+        validationResult.ErrorMessage!.Contains(expected)))
+        .IsTrue();
+
+}
+```
+
+That is it although we do not have full coverage for all paths the idea is to give the reader an idea how to get started. Consider writing more test against the book model for practice.
 
 
 ## FluentValidation
@@ -306,6 +381,297 @@ Let's look at testing a Book.
 [FluentValidation](https://docs.fluentvalidation.net/en/latest/installation.html) is a validation library for .NET, used for building strongly typed validation rules for business objects.
 
 Fluent validations use a Fluent interface and lambda expressions to build validation rules.
+
+Customer class
+
+```csharp
+public class Customer : CustomerLogin
+{
+    public int Id { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Email { get; set; }
+    public decimal CreditLimit { get; set; }
+    public int Discount { get; set; }
+    public bool HasDiscount { get; set; }
+    public string Address { get; set; }
+    public string Postcode { get; set; }
+    public string Pin { get; set; }
+    public string SocialSecurity { get; set; }
+    public DateTime BirthDate { get; set; }
+
+    public override string ToString() => $"{FirstName} {LastName}";
+
+}
+```
+
+Validator for Customer class/model
+
+**Rules**
+
+Some rules are not realistic, they are here to show what is possible.
+
+- **Id** must be in the range from 1 to 10 
+- **FirstName** can not be empty and valid length is 3 to 10 characters
+- **LastName** can not be empty and valid length is 3 to 20 characters
+- **Email** must be a valid email address
+- **Discount** is only valid if `HasDiscount` property is set to true
+- `**CreditLimit**` must be less than $9,999
+- **Postcode** must be in the method `HasValidPostcode` list of postal codes
+- **Pin** is converted from a string to an int and can not be greater than 8888
+- **SocialSecurity** uses over the top validation using regular expressions in a language extension method.
+- **BirthDate** can not be less than 01/01/1932
+
+```csharp
+public class CustomerValidator : AbstractValidator<Customer>
+{
+    public CustomerValidator()
+    {
+
+        RuleFor(customer => customer.Id)
+            .InclusiveBetween(1, 10);
+
+        RuleFor(customer => customer.FirstName)
+            .NotEmpty()
+            .Length(3, 10)
+            .WithMessage("Please specify a first name");
+
+        RuleFor(customer => customer.LastName)
+            .NotEmpty()
+            .Length(3, 20)
+            .WithMessage("Please specify a last name");
+
+        RuleFor(customer => customer.Email)
+            .EmailAddress();
+
+        RuleFor(customer => customer.Discount)
+            .NotEqual(0)
+            .When(customer => customer.HasDiscount);
+
+        RuleFor(customer => customer.CreditLimit)
+            .LessThanOrEqualTo(9999);
+
+
+        RuleFor(customer => customer.Address)
+            .MaximumLength(250);
+
+        RuleFor(customer => customer.Postcode)
+            .Must(HasValidPostcode)
+            .WithMessage("Please specify a valid postcode");
+
+        Transform(from: customer => customer.Pin, to: value => 
+                int.TryParse(value, out int result) ? (int?)result : null)
+            .GreaterThan(8888);
+
+        Transform(
+            from: customer => customer.SocialSecurity,
+            to: value => value.IsSSNValid()).Must(value => value);
+
+        RuleFor(customer => customer.BirthDate).GreaterThan(new DateTime(1932,1,1));
+    }
+
+    private static bool HasValidPostcode(string postcode)
+    {
+        List<string> list = new() { "97301", "97223", "97209", "97146", "97374", "97734" };
+        var result = list.FirstOrDefault(item => item == postcode);
+        return result is not null;
+    }
+}
+```
+
+Validating a Customer, as in the Book example we setp a valid customer in the base class for the test class.
+
+```csharp
+public partial class MainTest
+{
+    private CustomerValidator CustomerValidator;
+    /// <summary>
+    /// Perform initialization before test runs using assertion on current test name.
+    /// </summary>
+    [TestInitialize]
+    public void Initialization()
+    {
+        CustomerValidator = new CustomerValidator();
+    }
+
+    /// <summary>
+    /// Perform any initialize for the class
+    /// </summary>
+    /// <param name="testContext"></param>
+    [ClassInitialize()]
+    public static void ClassInitialize(TestContext testContext)
+    {
+        TestResults = new List<TestContext>();
+    }
+
+    public static Customer ValidCustomer => new Customer
+    {
+        Id = 1,
+        FirstName = "Karen",
+        LastName = "Payne",
+        BirthDate = new DateTime(1956,9,24),
+        Pin = "8889",
+        Email = "kp@gmail.com",
+        CreditLimit = 9999,
+        Discount = 10, // TODO
+        SocialSecurity = "205-55-1234",
+        HasDiscount = true,
+        Address = "101 Microsoft Way",
+        Postcode = "97209"
+    };
+}
+```
+
+Then in the main test class, unit test for customers.
+
+There are several methods used for validation.
+
+- To check if a model is valid o rnot
+  - Check.That(result.IsValid).IsTrue();
+  - result.ShouldHaveValidationErrorFor(customer => customer.FirstName);
+  - result.ShouldHaveValidationErrorFor(customer => customer.Email);
+
+
+
+```csharp
+[TestClass]
+public partial class MainTest : TestBase
+{
+
+    [TestMethod]
+    [TestTraits(Trait.FluentValidation)]
+    public async Task CleanCustomerTest()
+    {
+        // arrange
+        Customer thisCustomer = ValidCustomer;
+
+        // act
+        var result = await CustomerValidator.ValidateAsync(thisCustomer);
+
+        // assert
+        Check.That(result.IsValid).IsTrue();
+    }
+
+
+    [TestMethod]
+    [TestTraits(Trait.FluentValidation)]
+    public async Task CustomerNoFirstNameNoLastNameTest()
+    {
+        // arrange
+        Customer thisCustomer = ValidCustomer;
+        thisCustomer.FirstName = "";
+        thisCustomer.LastName = "";
+
+
+        // act
+        var result = await CustomerValidator.TestValidateAsync(thisCustomer);
+        
+        // assert
+        result.ShouldHaveValidationErrorFor(customer => customer.FirstName);
+        result.ShouldHaveValidationErrorFor(customer => customer.LastName);
+
+    }
+
+    [TestMethod]
+    [TestTraits(Trait.FluentValidation)]
+    public async Task CustomerBadEmailTest()
+    {
+        // arrange
+        Customer thisCustomer = ValidCustomer;
+        thisCustomer.Email = "karenGmail";
+
+        // act
+        var result = await CustomerValidator.TestValidateAsync(thisCustomer);
+
+        // assert
+        result.ShouldHaveValidationErrorFor(customer => customer.Email);
+
+    }
+
+    [TestMethod]
+    [TestTraits(Trait.FluentValidation)]
+    public async Task CustomerInvalidPostalCodeTest()
+    {
+        // arrange
+        Customer thisCustomer = ValidCustomer;
+        thisCustomer.Postcode = "99999";
+
+        // act
+        var result = await CustomerValidator.TestValidateAsync(thisCustomer);
+
+        // assert
+        result.ShouldHaveValidationErrorFor(customer => customer.Postcode);
+
+    }
+
+    [TestMethod]
+    [TestTraits(Trait.FluentValidation)]
+    public async Task CustomerInvalidPrimaryKeyTest()
+    {
+        // arrange
+        Customer thisCustomer = ValidCustomer;
+        thisCustomer.Id = 0;
+
+        // act
+        var result = await CustomerValidator.TestValidateAsync(thisCustomer);
+
+        // assert
+        result.ShouldHaveValidationErrorFor(customer => customer.Id);
+
+    }
+
+    [TestMethod]
+    [TestTraits(Trait.FluentValidation)]
+    public async Task CustomerInvalidPinTest()
+    {
+        // arrange
+        Customer thisCustomer = ValidCustomer;
+        thisCustomer.Pin = "5555";  // must be greater than 8888
+
+        // act
+        var result = await CustomerValidator.TestValidateAsync(thisCustomer);
+
+        // assert
+        result.ShouldHaveValidationErrorFor(customer => customer.Pin);
+    }
+
+    [TestMethod]
+    [TestTraits(Trait.FluentValidation)]
+    public async Task CustomerBirthDateInvalidTest()
+    {
+        // arrange
+        Customer thisCustomer = ValidCustomer;
+        thisCustomer.BirthDate = new DateTime(1930, 1, 1);
+
+        // act
+        var result = await CustomerValidator.TestValidateAsync(thisCustomer);
+
+        // assert
+        result.ShouldHaveValidationErrorFor(customer => customer.BirthDate);
+    }
+
+    [TestMethod]
+    [TestTraits(Trait.FluentValidation)]
+    public async Task CustomerSocialSecurityNumberInvalidTest()
+    {
+        // arrange
+        Customer thisCustomer = ValidCustomer;
+        thisCustomer.SocialSecurity = "219-09-9999";
+
+        // act
+        var result = await CustomerValidator.TestValidateAsync(thisCustomer);
+
+        // assert
+        result.ShouldHaveValidationErrorFor(customer => customer.SocialSecurity);
+    }
+}
+```
+
+
+
+
+
+
 
 
 

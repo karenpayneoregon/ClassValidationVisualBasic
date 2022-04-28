@@ -12,15 +12,8 @@ namespace NetCoreUnitTestProject
     public partial class BooksTests
     {
         [TestInitialize]
-        public void Initialization()
-        {
+        public void Initialization() { }
 
-        }
-
-        /// <summary>
-        /// Perform any initialize for the class
-        /// </summary>
-        /// <param name="testContext"></param>
         [ClassInitialize()]
         public static void ClassInitialize(TestContext testContext)
         {

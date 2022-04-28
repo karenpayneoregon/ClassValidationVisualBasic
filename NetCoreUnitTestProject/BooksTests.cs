@@ -105,7 +105,7 @@ namespace NetCoreUnitTestProject
         public void ValidateBook_EmptyBook_Test()
         {
             // arrange
-            Book book = new Book();
+            Book book = new ();
 
             // act
             EntityValidationResult result = Model.Validate(book);

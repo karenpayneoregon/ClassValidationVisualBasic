@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using BaseDataValidatorLibrary.Helpers;
 using BaseDataValidatorLibrary.LanguageExtensions;
 using BaseModelsLibrary.Models;
+using FluentAssertions;
 using NetCoreUnitTestProject.Base;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;
@@ -60,8 +61,9 @@ namespace NetCoreUnitTestProject
             EntityValidationResult validationResult = Model.Validate(contact);
 
             // assert
-            CollectionAssert.AreEqual(expected, validationResult.ErrorMessagesList());
- 
+     
+            expected.Should().Equal(validationResult.ErrorMessagesList());
+
         }
 
     }
