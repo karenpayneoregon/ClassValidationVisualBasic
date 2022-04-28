@@ -1,7 +1,13 @@
 ﻿using System;
+using BaseDataValidatorLibrary.CommonRules;
+using BaseDataValidatorLibrary.Helpers;
 
 namespace BaseDataValidatorLibrary.Classes
 {
+    /// <summary>
+    /// For obtaining <see cref="ValidateYearsAttribute"/> ErrorMessage
+    /// using <see cref="Model.GetValidateYearsErrorMessages(T)"/>
+    /// </summary>
     public class ValidateYearsDetails
     {
         public string PropertyName { get; set; }

@@ -9,13 +9,14 @@ namespace BaseDataValidatorLibrary.CommonRules
     {
         public string SocialValue { get; set; }
 
-        public override bool IsValid(object value)
+        public override bool IsValid(object sender)
         {
-            if (value is null)
+            if (sender is null)
             {
                 return false;
             }
-            if (value.ToString().Length == 9 && Regex.IsMatch(value.ToString()!, @"^\d{9}$"))
+
+            if (sender.ToString().Length == 9 && Regex.IsMatch(sender.ToString()!, @"^\d{9}$"))
             {
                 return true;
             }

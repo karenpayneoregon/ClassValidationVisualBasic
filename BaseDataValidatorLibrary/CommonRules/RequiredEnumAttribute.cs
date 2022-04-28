@@ -10,15 +10,15 @@ namespace BaseDataValidatorLibrary.CommonRules
     /// </summary>
     public class RequiredEnumAttribute : RequiredAttribute
     {
-        public override bool IsValid(object value)
+        public override bool IsValid(object sender)
         {
-            if (value == null)
+            if (sender == null)
             {
                 return false;
             }
 
-            var type = value.GetType();
-            return type.IsEnum && Enum.IsDefined(type, value); ;
+            var type = sender.GetType();
+            return type.IsEnum && Enum.IsDefined(type, sender); ;
         }
     }
 }

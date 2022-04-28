@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace BaseDataValidatorLibrary.CommonRules
 {
@@ -7,26 +8,19 @@ namespace BaseDataValidatorLibrary.CommonRules
     /// </summary>
     public class CheckPhoneValidationAttribute : ValidationAttribute 
     {
-        public override bool IsValid(object value)
+        public override bool IsValid(object sender)
         {
-
-            bool IsDigitsOnly(string str)
+            static bool IsDigitsOnly(string value)
             {
-                foreach (var c in str)
-                {
-                    if (c < '0' || c > '9')
-                        return false;
-                }
-
-                return true;
+                return value.All(character => character is >= '0' and <= '9');
             }
 
-            if (value == null)
+            if (sender == null)
             {
                 return false;
             }
 
-            string convertedValue = value.ToString();
+            string convertedValue = sender.ToString();
 
             return !string.IsNullOrWhiteSpace(convertedValue) && 
                    IsDigitsOnly(convertedValue) && 

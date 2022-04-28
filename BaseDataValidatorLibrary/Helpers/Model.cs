@@ -26,6 +26,7 @@ namespace BaseDataValidatorLibrary.Helpers
         public static Dictionary<string, string> GetRequiredErrorMessages<T>(T sender)
         {
             Dictionary<string, string> dictionary = new();
+
             var type = typeof(T);
             PropertyInfo[] propertyInfo = type.GetProperties();
 
@@ -45,10 +46,18 @@ namespace BaseDataValidatorLibrary.Helpers
 
             return dictionary;
         }
+
+        /// <summary>
+        /// Provides access to annotation details for <see cref="ValidateYearsAttribute"/>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sender"></param>
+        /// <returns></returns>
         public static List<ValidateYearsDetails> GetValidateYearsErrorMessages<T>(T sender)
         {
 
             List<ValidateYearsDetails> list = new ();
+
             var type = typeof(T);
             PropertyInfo[] propertyInfo = type.GetProperties();
 
