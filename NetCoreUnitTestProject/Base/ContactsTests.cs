@@ -27,7 +27,7 @@ namespace NetCoreUnitTestProject
             TestResults = new List<TestContext>();
         }
 
-        public static Contact TheContact => new Contact()
+        public static Contact TheContact => new()
         {
             FirstName = "Karen",
             LastName = "Payne",

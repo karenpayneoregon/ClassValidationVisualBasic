@@ -216,7 +216,85 @@ That's pretty much the basics for ASP.NET Core.
 
 The following sections will demonstrate using mocked data in unit test methods.
 
+The best method to test validating models is in unit test methods, devoid of user interfaces.
 
+Simple example, we have a Book class, wired up for
+
+For `Book` class these are how each property is setup with attributes for validation. 
+
+| Property        |   Required    |   Uses custom attribute |
+|:------------- |:-------------|:-------------|
+| Title | &check; |  &cross; |
+| ISBN | &check; |  &cross; |
+| BookCategory | &check; |  &check;|
+| NotesList | &check; |  &check;|
+
+
+`BookCategory` is an `enum`
+
+```csharp
+public enum BookCategory
+{
+    Select = 1,
+    SpaceTravel = 2,
+    Adventure = 3,
+    Romance = 4,
+    Sports = 5,
+    Automobile = 6
+}
+```
+
+Which uses a custom custom attribute inheritied by RequiredAttribute to validate a property enum is used.
+
+
+```csharp
+public class RequiredEnumAttribute : RequiredAttribute
+{
+    public override bool IsValid(object sender)
+    {
+        if (sender == null)
+        {
+            return false;
+        }
+
+        var type = sender.GetType();
+        return type.IsEnum && Enum.IsDefined(type, sender); ;
+    }
+}
+```
+
+`Notes` uses the following class to validate an instance of a `Book` has at least one note.
+
+```csharp
+public class ListHasElements : ValidationAttribute
+{
+    public override bool IsValid(object sender)
+    {
+        if (sender == null)
+        {
+            return false;
+        }
+
+        if (sender.IsList())
+        {
+            var result = ((IEnumerable)sender).Cast<object>().ToList();
+            return result.Any();
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
+```
+The `Book class` should reside in a business class project while any `custom attribute classes` should reside in a common class project suitable for many projects to utilize rather than in a single project/application.
+
+For this Visual Studio solution
+
+- All `validation methods`, extension methods and custom attribute classes are in `BaseDataValidationLibrary`
+- All `Classes/models` reside in the project `BaseModelsLibrary`
+
+Let's look at testing a Book.
 
 
 

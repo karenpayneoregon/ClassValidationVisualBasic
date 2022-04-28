@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using BaseModelsLibrary.Rules;
+using BaseDataValidatorLibrary.CommonRules;
 
 namespace BaseModelsLibrary.Models
 {

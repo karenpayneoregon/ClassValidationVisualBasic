@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace BaseModelsLibrary.Rules
+namespace BaseDataValidatorLibrary.CommonRules
 {
 
     /// <summary>

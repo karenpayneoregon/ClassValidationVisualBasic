@@ -5,7 +5,6 @@ using BaseDataValidatorLibrary.Helpers;
 using BaseModelsLibrary.Models;
 using NetCoreUnitTestProject.Base;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
 using NFluent;
 using static System.DateTime;
 using BaseDataValidatorLibrary.LanguageExtensions;
@@ -18,6 +17,8 @@ namespace NetCoreUnitTestProject
     [TestClass]
     public partial class PersonTests : TestBase
     {
+        
+
         [TestMethod]
         [TestTraits(Trait.Annotations)]
         public void ValidPerson()
