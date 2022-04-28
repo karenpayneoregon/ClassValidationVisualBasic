@@ -416,7 +416,7 @@ Some rules are not realistic, they are here to show what is possible.
 - **LastName** can not be empty and valid length is 3 to 20 characters
 - **Email** must be a valid email address
 - **Discount** is only valid if `HasDiscount` property is set to true
-- `**CreditLimit**` must be less than $9,999
+- **CreditLimit**` must be less than $9,999
 - **Postcode** must be in the method `HasValidPostcode` list of postal codes
 - **Pin** is converted from a string to an int and can not be greater than 8888
 - **SocialSecurity** uses over the top validation using regular expressions in a language extension method.
