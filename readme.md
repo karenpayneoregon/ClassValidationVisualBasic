@@ -1,4 +1,6 @@
-### Basic class validation
+### Class/model validation basics
+
+![Learn With Karen Validate](assets/LearnWithKarenValidate.png)
 
 This repository provides various code samples for validating data using [data annotations](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-5.0) and [FluentValidation](https://docs.fluentvalidation.net/en/latest/installation.html).
 
@@ -20,7 +22,7 @@ This repository contains validation code samples for user input, not validation 
 With ASP.NET Core using [data annotations](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-5.0) the standard for validating a model is with the [Validator Class](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.validator?view=net-5.0) which defines a helper class that can be used to validate objects, properties, and methods when it is included in their associated [ValidationAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.validationattribute?view=net-5.0) attributes.
 
 
-The ValidationAttribute class enforces validation, based on the metadata that is associated with the data table. You can override this class to create custom validation attributes.
+The ValidationAttribute class enforces validation, based on the [metadata](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.metadatatypeattribute?view=net-5.0) that is associated with the data table. You can override this class to create custom validation attributes.
 
 **Example**
 
