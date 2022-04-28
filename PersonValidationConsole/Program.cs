@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using BaseDataValidatorLibrary.Helpers;
 using BaseModelsLibrary.Models;
 using static System.DateTime;
@@ -70,6 +71,12 @@ namespace PersonValidationConsole
             Console.Write("Running");
             Console.ResetColor();
             Console.Write($" {sender}\n");
+        }
+
+        [ModuleInitializer]
+        public static void Init()
+        {
+            Console.Title = "Verbs code samples";
         }
     }
 }
