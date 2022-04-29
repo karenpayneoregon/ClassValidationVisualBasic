@@ -19,7 +19,6 @@ namespace NetCoreUnitTestProject
             // arrange
 
             var customerLogin = CustomerLoginValid;
-
             // act
             EntityValidationResult validationResult = Model.Validate(customerLogin);
 

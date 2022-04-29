@@ -22,7 +22,7 @@ namespace ValidationSample.Models
         [StringLength(1000)]
         public string Description { get; set; }
 
-        [Range(0, 999.99)]
+        [Range(10, 999.99)]
         public decimal Price { get; set; }
 
         public Genre Genre { get; set; }

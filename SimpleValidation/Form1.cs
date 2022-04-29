@@ -50,6 +50,15 @@ namespace SimpleValidation
              *
              * Will write all code in this event
              */
+
+            if (string.IsNullOrWhiteSpace(FirstNameTextBox.Text) && string.IsNullOrWhiteSpace(LastNameTextBox.Text) & string.IsNullOrWhiteSpace(SocialSecurityTextBox.Text))
+            {
+                // not valid
+            }
+            else
+            {
+                // valid
+            }
         }
     }
 }

@@ -36,8 +36,11 @@ namespace NetCoreUnitTestProject
             EntityValidationResult result = Model.Validate(taxpayer);
 
             // assert
-            Check.That(result.HasError).IsFalse();
+            //Check.That(result.HasError).IsFalse();
             Check.That(result.IsValid).IsTrue();
+
+
+
         }
         [TestMethod]
         [TestTraits(Trait.Annotations)]
@@ -45,7 +48,7 @@ namespace NetCoreUnitTestProject
         {
             // arrange
             Taxpayer taxpayer = TheTaxpayer;
-            taxpayer.SSN = "12355123"; //  not enough digits
+            taxpayer.SSN = "12355"; //  not enough digits
 
             // act
             EntityValidationResult result = Model.Validate(taxpayer);
