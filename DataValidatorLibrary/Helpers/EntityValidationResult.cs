@@ -9,6 +9,9 @@ namespace DataValidatorLibrary.Helpers
 
         public bool HasError => Errors.Count > 0;
 
+        public bool IsValid => Errors.Count == 0;
+        public bool IsNotValid => Errors.Count > 0;
+
         public EntityValidationResult(IList<ValidationResult> errors = null)
         {
             this.Errors = errors ?? new List<ValidationResult>();
