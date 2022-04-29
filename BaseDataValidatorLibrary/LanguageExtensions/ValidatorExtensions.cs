@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -21,6 +22,17 @@ namespace BaseDataValidatorLibrary.LanguageExtensions
             
             return sender.Errors.Select(validationResult 
                 => RemoveSpaces(validationResult.ErrorMessage.SplitCamelCase())).ToList();
+        }
+
+        /// <summary>
+        /// Displays any error messages using Console.WriteLine
+        /// </summary>
+        /// <param name="sender"></param>
+        public static void ShowErrorMessages(this EntityValidationResult sender)
+        {
+            
+            sender.ErrorMessagesList().ForEach(Console.WriteLine);
+            
         }
 
     }

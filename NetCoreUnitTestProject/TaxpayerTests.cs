@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using BaseDataValidatorLibrary.Helpers;
+using BaseDataValidatorLibrary.LanguageExtensions;
 using BaseModelsLibrary.Models;
 using NetCoreUnitTestProject.Base;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -53,7 +54,7 @@ namespace NetCoreUnitTestProject
             //Check.That(result.HasError).IsFalse();
             Check.That(result.IsValid).IsFalse();
 
-            result.Errors.ToList().ForEach(Console.WriteLine);
+            result.ShowErrorMessages();
         }
 
     }
