@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using FluentLocalLibrary.LanguageExtensions;
 using FluentValidationUnitTests.Base;
 using FluentValidationUnitTests.Classes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -154,6 +155,14 @@ namespace FluentValidationUnitTests
             // assert
             result.ShouldHaveValidationErrorFor(customer => customer.SocialSecurity);
         }
+
+        [TestMethod]
+        [TestTraits(Trait.FluentValidationExtended)]
+        public void Extended_1_Test()
+        {
+            new[] { 1, 2, 3 }.KarenVerifies().IsEquivalentTo(3, 2, 1);
+        }
+
     }
 }
 

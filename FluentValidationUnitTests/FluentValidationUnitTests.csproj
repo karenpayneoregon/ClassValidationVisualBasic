@@ -30,6 +30,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\BaseModelsLibrary\BaseModelsLibrary.csproj" />
+	  <ProjectReference Include="..\FluentLocalLibrary\FluentLocalLibrary.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

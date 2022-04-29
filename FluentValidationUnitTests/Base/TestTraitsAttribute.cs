@@ -11,7 +11,8 @@ namespace FluentValidationUnitTests.Base
         /// Place holder 
         /// </summary>
         PlaceHolder,
-        FluentValidation
+        FluentValidation,
+        FluentValidationExtended
     }
     /// <summary>
     /// Declarative class for using Trait enum about for traits on test method.

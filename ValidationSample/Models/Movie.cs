@@ -18,7 +18,7 @@ namespace ValidationSample.Models
         [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The {0} is required")]
         [StringLength(1000)]
         public string Description { get; set; }
 

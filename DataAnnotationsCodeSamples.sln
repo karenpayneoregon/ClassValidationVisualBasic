@@ -38,6 +38,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationSample", "Validat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonValidationConsole", "PersonValidationConsole\PersonValidationConsole.csproj", "{56BCF93C-E292-4638-8FEA-4E87D95349D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentLocalLibrary", "FluentLocalLibrary\FluentLocalLibrary.csproj", "{2A14695B-CE19-436E-AB4B-EE33754B32F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +82,10 @@ Global
 		{56BCF93C-E292-4638-8FEA-4E87D95349D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56BCF93C-E292-4638-8FEA-4E87D95349D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56BCF93C-E292-4638-8FEA-4E87D95349D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A14695B-CE19-436E-AB4B-EE33754B32F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A14695B-CE19-436E-AB4B-EE33754B32F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A14695B-CE19-436E-AB4B-EE33754B32F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A14695B-CE19-436E-AB4B-EE33754B32F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +105,7 @@ Global
 		{74854B37-33D1-419E-A576-00E196049DFA} = {68E1238C-1135-4011-A33E-679B125833BC}
 		{967919D5-5BB2-4EAD-84A4-9BEBB6A44BAF} = {74854B37-33D1-419E-A576-00E196049DFA}
 		{56BCF93C-E292-4638-8FEA-4E87D95349D0} = {68E1238C-1135-4011-A33E-679B125833BC}
+		{2A14695B-CE19-436E-AB4B-EE33754B32F8} = {DEB79441-5848-417B-8F6B-663D5FA16970}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {31585ECE-38FE-4FA5-88E8-48D362BD409C}
