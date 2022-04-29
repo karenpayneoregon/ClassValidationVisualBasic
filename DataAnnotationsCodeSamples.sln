@@ -44,6 +44,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows forms", "Windows fo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleValidation", "SimpleValidation\SimpleValidation.csproj", "{331D89B5-F873-4F6B-9742-F1758E978B04}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Not part of lesson", "Not part of lesson", "{E8BAD02B-DE5D-444D-B731-527856157D65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextNumberConsoleApp", "NextNumberConsoleApp\NextNumberConsoleApp.csproj", "{D42B67ED-88CB-4251-9922-BEE0D4B66FA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -94,6 +98,10 @@ Global
 		{331D89B5-F873-4F6B-9742-F1758E978B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{331D89B5-F873-4F6B-9742-F1758E978B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{331D89B5-F873-4F6B-9742-F1758E978B04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D42B67ED-88CB-4251-9922-BEE0D4B66FA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D42B67ED-88CB-4251-9922-BEE0D4B66FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D42B67ED-88CB-4251-9922-BEE0D4B66FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D42B67ED-88CB-4251-9922-BEE0D4B66FA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,6 +124,8 @@ Global
 		{2A14695B-CE19-436E-AB4B-EE33754B32F8} = {DEB79441-5848-417B-8F6B-663D5FA16970}
 		{7C37436A-9319-4BEA-9329-60E621A65E8D} = {68E1238C-1135-4011-A33E-679B125833BC}
 		{331D89B5-F873-4F6B-9742-F1758E978B04} = {7C37436A-9319-4BEA-9329-60E621A65E8D}
+		{E8BAD02B-DE5D-444D-B731-527856157D65} = {44AE9378-569C-4DF4-B953-41CF7C559C87}
+		{D42B67ED-88CB-4251-9922-BEE0D4B66FA3} = {E8BAD02B-DE5D-444D-B731-527856157D65}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {31585ECE-38FE-4FA5-88E8-48D362BD409C}
