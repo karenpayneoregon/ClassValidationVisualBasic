@@ -11,8 +11,8 @@ namespace BaseDataValidatorLibrary.CommonRules
     {
         public override bool IsValid(object senderDate)
         {
-            DateTime d = Convert.ToDateTime(senderDate);
-            return d.DayOfWeek != DayOfWeek.Saturday && d.DayOfWeek != DayOfWeek.Sunday;
+            DateTime date = Convert.ToDateTime(senderDate);
+            return date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday;
         }
     }
 

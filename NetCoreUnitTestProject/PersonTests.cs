@@ -62,7 +62,7 @@ namespace NetCoreUnitTestProject
              * Here there are two possible assertions
              */
 
-            //Check.That(result.IsValid).IsFalse();
+            Check.That(result.IsValid).IsFalse();
 
             Check.That(result.Errors.FirstOrDefault().ErrorMessage)
                 .ContainsExactly("Invalid FirstName");

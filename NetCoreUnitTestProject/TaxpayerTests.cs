@@ -23,9 +23,7 @@ namespace NetCoreUnitTestProject
     [TestClass]
     public partial class TaxpayerTests : TestBase
     {
-        /// <summary>
-        /// 
-        /// </summary>
+
         [TestMethod]
         [TestTraits(Trait.Annotations)]
         public void ValidTaxpayerTest()
@@ -34,12 +32,29 @@ namespace NetCoreUnitTestProject
             Taxpayer taxpayer = TheTaxpayer;
 
             // act
-            EntityValidationResult validationResult = Model.Validate(taxpayer);
+            EntityValidationResult result = Model.Validate(taxpayer);
 
             // assert
-            Check.That(validationResult.HasError).IsFalse();
+            Check.That(result.HasError).IsFalse();
+            Check.That(result.IsValid).IsTrue();
         }
+        [TestMethod]
+        [TestTraits(Trait.Annotations)]
+        public void InValidTaxpayerTest()
+        {
+            // arrange
+            Taxpayer taxpayer = TheTaxpayer;
+            taxpayer.SSN = "12355123"; //  not enough digits
 
+            // act
+            EntityValidationResult result = Model.Validate(taxpayer);
+
+            // assert
+            //Check.That(result.HasError).IsFalse();
+            Check.That(result.IsValid).IsFalse();
+
+            result.Errors.ToList().ForEach(Console.WriteLine);
+        }
 
     }
 

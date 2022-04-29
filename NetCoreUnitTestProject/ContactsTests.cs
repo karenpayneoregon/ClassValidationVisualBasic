@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using BaseDataValidatorLibrary.Helpers;
 using BaseDataValidatorLibrary.LanguageExtensions;
 using BaseModelsLibrary.Models;
+
 using FluentAssertions;
+
 using NetCoreUnitTestProject.Base;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using NFluent;
 
 namespace NetCoreUnitTestProject
@@ -34,10 +35,10 @@ namespace NetCoreUnitTestProject
             var contact = TheContact;
 
             // act
-            EntityValidationResult validationResult = Model.Validate(contact);
+            EntityValidationResult result = Model.Validate(contact);
             
             // assert
-            Check.That(validationResult.HasError).IsFalse();
+            Check.That(result.HasError).IsFalse();
         }
 
         [TestMethod]
@@ -58,11 +59,11 @@ namespace NetCoreUnitTestProject
 
 
             // act
-            EntityValidationResult validationResult = Model.Validate(contact);
+            EntityValidationResult result = Model.Validate(contact);
 
             // assert
      
-            expected.Should().Equal(validationResult.ErrorMessagesList());
+            expected.Should().Equal(result.ErrorMessagesList());
 
         }
 

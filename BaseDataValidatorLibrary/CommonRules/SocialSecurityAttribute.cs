@@ -4,6 +4,10 @@ using System.Text.RegularExpressions;
 
 namespace BaseDataValidatorLibrary.CommonRules
 {
+    /// <summary>
+    /// Basic SSN validation, see also
+    /// FluentValidationUnitTests.LanguageExtensions.IsSSNValid extension for more validation
+    /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
     public class SocialSecurityAttribute : ValidationAttribute
     {

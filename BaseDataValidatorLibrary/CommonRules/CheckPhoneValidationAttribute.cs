@@ -4,7 +4,7 @@ using System.Linq;
 namespace BaseDataValidatorLibrary.CommonRules
 {
     /// <summary>
-    /// Provides custom rule for phone number rather than using [Phone]
+    /// Provides custom rule for phone number rather than using stock [Phone] class
     /// </summary>
     public class CheckPhoneValidationAttribute : ValidationAttribute 
     {

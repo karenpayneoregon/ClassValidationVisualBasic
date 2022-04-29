@@ -45,7 +45,7 @@ namespace NetCoreUnitTestProject
             TestResults = new List<TestContext>();
         }
 
-        CustomerLogin CustomerLoginValid => new ()
+        private static CustomerLogin CustomerLoginValid => new ()
         {
             Name = "JaneDoe",
             EntryDate = new DateTime(2022, 4, 25),

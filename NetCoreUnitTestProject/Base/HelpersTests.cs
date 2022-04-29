@@ -16,10 +16,6 @@ namespace NetCoreUnitTestProject
 
         }
 
-        /// <summary>
-        /// Perform any initialize for the class
-        /// </summary>
-        /// <param name="testContext"></param>
         [ClassInitialize()]
         public static void ClassInitialize(TestContext testContext)
         {

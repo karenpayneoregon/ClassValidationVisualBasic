@@ -20,6 +20,9 @@ namespace NetCoreUnitTestProject
             TestResults = new List<TestContext>();
         }
 
+        /// <summary>
+        /// Mocked up, valid <see cref="Book"/>
+        /// </summary>
         public static Book TheBook => new ()
         {
             Title = "Gone with the wind",

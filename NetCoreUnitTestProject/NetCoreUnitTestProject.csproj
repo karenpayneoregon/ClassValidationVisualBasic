@@ -26,6 +26,7 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\BaseDataValidatorLibrary\BaseDataValidatorLibrary.csproj" />
 	  <ProjectReference Include="..\BaseModelsLibrary\BaseModelsLibrary.csproj" />
+	  <ProjectReference Include="..\FluentLocalLibrary\FluentLocalLibrary.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -5,6 +5,9 @@ using BaseDataValidatorLibrary.LanguageExtensions;
 
 namespace BaseDataValidatorLibrary.CommonRules
 {
+    /// <summary>
+    /// Rule to assert there is at least one element in a list property
+    /// </summary>
     public class ListHasElements : ValidationAttribute
     {
         public override bool IsValid(object sender)

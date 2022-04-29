@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace BaseDataValidatorLibrary.CommonRules
 {
     /// <summary>
-    /// Validate year only
+    /// Validate year only of a DateTime
     /// </summary>
     public class ValidateYearsAttribute : ValidationAttribute
     {
