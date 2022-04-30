@@ -37,9 +37,9 @@ namespace SimpleValidation
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.LastNameTextBox = new System.Windows.Forms.TextBox();
-            this.SubmitBadButton = new System.Windows.Forms.Button();
             this.SubmitButton = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ErrorMessagesButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +62,7 @@ namespace SimpleValidation
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(118, 37);
+            this.checkBox1.Location = new System.Drawing.Point(48, 13);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(59, 17);
             this.checkBox1.TabIndex = 2;
@@ -102,19 +102,6 @@ namespace SimpleValidation
             this.LastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.LastNameTextBox.TabIndex = 6;
             // 
-            // SubmitBadButton
-            // 
-            this.SubmitBadButton.BackColor = System.Drawing.Color.White;
-            this.SubmitBadButton.Image = global::SimpleValidation.Properties.Resources.delete;
-            this.SubmitBadButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SubmitBadButton.Location = new System.Drawing.Point(137, 195);
-            this.SubmitBadButton.Name = "SubmitBadButton";
-            this.SubmitBadButton.Size = new System.Drawing.Size(117, 23);
-            this.SubmitBadButton.TabIndex = 8;
-            this.SubmitBadButton.Text = "Submit";
-            this.SubmitBadButton.UseVisualStyleBackColor = false;
-            this.SubmitBadButton.Click += new System.EventHandler(this.SubmitBadButton_Click);
-            // 
             // SubmitButton
             // 
             this.SubmitButton.BackColor = System.Drawing.Color.White;
@@ -133,12 +120,25 @@ namespace SimpleValidation
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
+            // ErrorMessagesButton
+            // 
+            this.ErrorMessagesButton.BackColor = System.Drawing.Color.White;
+            this.ErrorMessagesButton.Image = global::SimpleValidation.Properties.Resources.blueInformation_16;
+            this.ErrorMessagesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ErrorMessagesButton.Location = new System.Drawing.Point(135, 195);
+            this.ErrorMessagesButton.Name = "ErrorMessagesButton";
+            this.ErrorMessagesButton.Size = new System.Drawing.Size(117, 23);
+            this.ErrorMessagesButton.TabIndex = 8;
+            this.ErrorMessagesButton.Text = "Messages";
+            this.ErrorMessagesButton.UseVisualStyleBackColor = false;
+            this.ErrorMessagesButton.Click += new System.EventHandler(this.ErrorMessagesButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(266, 230);
-            this.Controls.Add(this.SubmitBadButton);
+            this.Controls.Add(this.ErrorMessagesButton);
             this.Controls.Add(this.SubmitButton);
             this.Controls.Add(this.LastNameTextBox);
             this.Controls.Add(this.label3);
@@ -167,8 +167,8 @@ namespace SimpleValidation
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox LastNameTextBox;
         private System.Windows.Forms.Button SubmitButton;
-        private System.Windows.Forms.Button SubmitBadButton;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button ErrorMessagesButton;
     }
 }
 
