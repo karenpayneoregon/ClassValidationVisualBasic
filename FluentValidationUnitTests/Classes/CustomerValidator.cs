@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using BaseModelsLibrary.Models;
 using FluentValidation;
@@ -26,6 +28,12 @@ namespace FluentValidationUnitTests.Classes
                 .NotEmpty()
                 .Length(3, 20)
                 .WithMessage("Please specify a last name");
+
+            //RuleFor(customer => customer.Email)
+            //    .NotEmpty()
+            //    .EmailAddress()
+            //    .Must(HaveValidEmailAddress)
+            //    .WithMessage("Bad email address");
 
             RuleFor(customer => customer.Email)
                 .EmailAddress();
@@ -54,6 +62,11 @@ namespace FluentValidationUnitTests.Classes
                 to: value => value.IsSSNValid()).Must(value => value);
 
             RuleFor(customer => customer.BirthDate).GreaterThan(new DateTime(1932,1,1));
+        }
+
+        private static bool HasValidEmailAddress(string emailAddress)
+        {
+            return Regex.IsMatch(emailAddress, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
         }
 
         private static bool HasValidPostcode(string postcode)
