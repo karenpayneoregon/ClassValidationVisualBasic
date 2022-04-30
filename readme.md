@@ -120,6 +120,14 @@ Check.That(result.IsValid).IsFalse();
 - All code to validate are in a class project in this solution under [BaseDataValidatorLibrary](https://github.com/karenpayneoregon/ClassValidationVisualBasic/tree/net-core-version/BaseDataValidatorLibrary).
 - For a list of stock validation attributes see [System.ComponentModel.DataAnnotations Namespace](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-5.0).
 
+## WPF
+
+There is a simple project taken from the [following repository](https://github.com/karenpayneoregon/wpf-login-annotations-cs.git). In the project NetCoreUnitTestProject there are unit test against the model in this project.
+
+![image](assets/Login2.png)
+
+https://github.com/karenpayneoregon/wpf-login-annotations-cs.git
+
 ## ASP.NET Core Razor
 
 *Some inputs use default validation while others have custom rules.*

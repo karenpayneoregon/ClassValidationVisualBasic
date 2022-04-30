@@ -47,9 +47,11 @@
     <Compile Include="CommonRules\MyStringLengthAttribute.cs" />
     <Compile Include="CommonRules\RequiredEnumAttribute.cs" />
     <Compile Include="CommonRules\SocialSecurityAttribute.cs" />
+    <Compile Include="Helpers\BaseModel.cs" />
     <Compile Include="Helpers\EntityValidationResult.cs" />
     <Compile Include="Helpers\EntityValidator.cs" />
     <Compile Include="Helpers\ValidationHelper.cs" />
+    <Compile Include="LanguageExtensions\AnnotateHelpers.cs" />
     <Compile Include="LanguageExtensions\ObjectExtensions.cs" />
     <Compile Include="LanguageExtensions\ValidatorExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -35,5 +35,12 @@ namespace BaseDataValidatorLibrary.LanguageExtensions
             
         }
 
+        public static string ErrorText(this EntityValidationResult sender)
+        {
+            StringBuilder builder = new();
+            sender.ErrorMessagesList().ForEach(x => builder.AppendLine(x));
+            return builder.ToString();
+        }
+
     }
 }
