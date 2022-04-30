@@ -1,4 +1,4 @@
-### Class/model validation basics
+### Class/model validation basics for web and desktop
 
 ![Learn With Karen Validate](assets/LearnWithKarenValidate.png)
 
