@@ -26,6 +26,7 @@ namespace BaseModelsLibrary.Models
         [Required(ErrorMessage = "Please Enter Email Address")]
         [RegularExpression("^([a-zA-Z0-9_\\.\\-])+\\@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9]{2,4})+$", 
             ErrorMessage = "Please Enter Correct {0} Email Address")]
+        [EmailAddress]
         public string BusinessEmail { get; set; }
 
         /// <summary>
