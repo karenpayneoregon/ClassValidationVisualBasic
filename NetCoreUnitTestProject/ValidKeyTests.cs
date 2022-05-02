@@ -1,4 +1,5 @@
-﻿using BaseDataValidatorLibrary.Helpers;
+﻿using BaseDataValidatorLibrary.CommonRules;
+using BaseDataValidatorLibrary.Helpers;
 using BaseDataValidatorLibrary.LanguageExtensions;
 using BaseModelsLibrary.Models;
 using NetCoreUnitTestProject.Base;
@@ -39,7 +40,7 @@ namespace NetCoreUnitTestProject
 
             // assert
             Check.That(result.IsValid).IsFalse();
-
+            var isValid = new ValidKeyAttribute().IsValid(value);
         }
 
         [TestMethod]

@@ -12,7 +12,7 @@ namespace BaseDataValidatorLibrary.CommonRules
         {
             string value = Convert.ToString(sender);
 
-            if (value.Length < 9)
+            if (value!.Length < 9)
             {
                 return false;
             }
