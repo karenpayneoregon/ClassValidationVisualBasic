@@ -10,6 +10,9 @@ using NFluent.Helpers;
 
 namespace FluentValidationUnitTests
 {
+    /// <summary>
+    /// Note ShouldHaveValidationErrorFor is deprecated in version 11.
+    /// </summary>
     [TestClass]
     public partial class MainTest : TestBase
     {
@@ -58,6 +61,7 @@ namespace FluentValidationUnitTests
             var result = await CustomerValidator.TestValidateAsync(thisCustomer);
             
             // assert
+
             result.ShouldHaveValidationErrorFor(customer => customer.FirstName);
             result.ShouldHaveValidationErrorFor(customer => customer.LastName);
 
