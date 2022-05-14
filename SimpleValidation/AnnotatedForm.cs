@@ -3,31 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using SimpleValidation.Classes;
+using SimpleValidation.Models;
 using SimpleValidation.Properties;
 
 namespace SimpleValidation
 {
-    public partial class Form1 : Form
+    public partial class AnnotatedForm : Form
     {
         private readonly BindingSource _bindingSource = new BindingSource();
-        private Taxpayer _taxpayer;
-        public Form1()
+        private TaxpayerAnnotated _taxpayer;
+        public AnnotatedForm()
         {
             InitializeComponent();
 
             errorProvider1.Icon = Resources.deleteIcon;
             
-            Controls.OfType<TextBox>().ToList().ForEach(tb => errorProvider1.SetIconPadding(tb,10));
+            Controls.OfType<TextBox>().ToList().ForEach(tb => 
+                errorProvider1.SetIconPadding(tb,10));
 
             SocialSecurityTextBox.ToggleShow(false);
             SocialSecurityTextBox.MaxLength = 11;
 
-            _bindingSource.DataSource = new List<Taxpayer>() { new Taxpayer() };
-            
-
-            SocialSecurityTextBox.DataBindings.Add("Text", _bindingSource, nameof(Taxpayer.SSN));
-            FirstNameTextBox.DataBindings.Add("Text", _bindingSource, nameof(Taxpayer.FirstName));
-            LastNameTextBox.DataBindings.Add("Text", _bindingSource, nameof(Taxpayer.LastName));
+            _bindingSource.DataSource = new List<TaxpayerAnnotated>() { new TaxpayerAnnotated()};
+           
+            SocialSecurityTextBox.DataBindings.Add("Text", _bindingSource, nameof(TaxpayerAnnotated.SSN));
+            FirstNameTextBox.DataBindings.Add("Text", _bindingSource, nameof(TaxpayerAnnotated.FirstName));
+            LastNameTextBox.DataBindings.Add("Text", _bindingSource, nameof(TaxpayerAnnotated.LastName));
+            BirthDateTimePicker.DataBindings.Add("DateTime", _bindingSource, nameof(TaxpayerAnnotated.BirthDate));
 
         }
 
@@ -44,12 +46,9 @@ namespace SimpleValidation
 
         private void ErrorMessagesButton_Click(object sender, EventArgs e)
         {
-            _taxpayer = new Taxpayer()
-            {
-                FirstName = FirstNameTextBox.Text,
-                LastName = LastNameTextBox.Text,
-                SSN = SocialSecurityTextBox.Text
-            };
+
+            _taxpayer = (TaxpayerAnnotated)_bindingSource.Current;
+            _taxpayer.BirthDate = BirthDateTimePicker.DateTime;
 
             var (success, errorMessages) = ValidationOperations.IsValidTaxpayer(_taxpayer);
             MessageBox.Show(success ? "Valid" : $"Not valid\n{errorMessages}");

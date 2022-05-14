@@ -1,6 +1,6 @@
 ﻿# About
 
-This code sample uses two different paths for validating data, both are done when submitting data.
+This code sample uses two different paths for validating data, both are done when submitting data. Presented below is for Data Annotatons in the form `AnnotatedForm` which is very clean code wise while the Fluent validation is clean up to working with the `ErroroProvider`, I would simply avoid working with the error provider.
 
 The first sets properties to a model and validates. 
 

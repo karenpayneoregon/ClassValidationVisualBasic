@@ -57,5 +57,3 @@ namespace NetCoreUnitTestProject
         }
     }
 }
-    //var test = new ValidKeyAttribute().IsValid(value);
-    //Check.That(test).IsFalse();

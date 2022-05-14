@@ -1,7 +1,7 @@
 ﻿
 namespace SimpleValidation
 {
-    partial class Form1
+    partial class AnnotatedForm
     {
         /// <summary>
         /// Required designer variable.
@@ -40,6 +40,8 @@ namespace SimpleValidation
             this.SubmitButton = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ErrorMessagesButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.BirthDateTimePicker = new SimpleValidation.Controls.NullableDateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +64,7 @@ namespace SimpleValidation
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(48, 13);
+            this.checkBox1.Location = new System.Drawing.Point(53, 13);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(59, 17);
             this.checkBox1.TabIndex = 2;
@@ -73,7 +75,7 @@ namespace SimpleValidation
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 84);
+            this.label2.Location = new System.Drawing.Point(9, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 3;
@@ -81,7 +83,7 @@ namespace SimpleValidation
             // 
             // FirstNameTextBox
             // 
-            this.FirstNameTextBox.Location = new System.Drawing.Point(12, 100);
+            this.FirstNameTextBox.Location = new System.Drawing.Point(12, 81);
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.FirstNameTextBox.TabIndex = 4;
@@ -89,7 +91,7 @@ namespace SimpleValidation
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 141);
+            this.label3.Location = new System.Drawing.Point(12, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 13);
             this.label3.TabIndex = 5;
@@ -97,7 +99,7 @@ namespace SimpleValidation
             // 
             // LastNameTextBox
             // 
-            this.LastNameTextBox.Location = new System.Drawing.Point(12, 157);
+            this.LastNameTextBox.Location = new System.Drawing.Point(12, 130);
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.LastNameTextBox.TabIndex = 6;
@@ -107,7 +109,7 @@ namespace SimpleValidation
             this.SubmitButton.BackColor = System.Drawing.Color.White;
             this.SubmitButton.Image = global::SimpleValidation.Properties.Resources.checkmark;
             this.SubmitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SubmitButton.Location = new System.Drawing.Point(12, 195);
+            this.SubmitButton.Location = new System.Drawing.Point(12, 213);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(117, 23);
             this.SubmitButton.TabIndex = 7;
@@ -125,7 +127,7 @@ namespace SimpleValidation
             this.ErrorMessagesButton.BackColor = System.Drawing.Color.White;
             this.ErrorMessagesButton.Image = global::SimpleValidation.Properties.Resources.blueInformation_16;
             this.ErrorMessagesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ErrorMessagesButton.Location = new System.Drawing.Point(135, 195);
+            this.ErrorMessagesButton.Location = new System.Drawing.Point(135, 213);
             this.ErrorMessagesButton.Name = "ErrorMessagesButton";
             this.ErrorMessagesButton.Size = new System.Drawing.Size(117, 23);
             this.ErrorMessagesButton.TabIndex = 8;
@@ -133,11 +135,32 @@ namespace SimpleValidation
             this.ErrorMessagesButton.UseVisualStyleBackColor = false;
             this.ErrorMessagesButton.Click += new System.EventHandler(this.ErrorMessagesButton_Click);
             // 
-            // Form1
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 162);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Birth";
+            // 
+            // BirthDateTimePicker
+            // 
+            this.BirthDateTimePicker.DateTime = new System.DateTime(2022, 5, 14, 10, 5, 47, 711);
+            this.BirthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.BirthDateTimePicker.Location = new System.Drawing.Point(12, 178);
+            this.BirthDateTimePicker.Name = "BirthDateTimePicker";
+            this.BirthDateTimePicker.Size = new System.Drawing.Size(100, 20);
+            this.BirthDateTimePicker.TabIndex = 10;
+            this.BirthDateTimePicker.Value = new System.DateTime(2022, 5, 14, 10, 5, 47, 711);
+            // 
+            // AnnotatedForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(266, 230);
+            this.ClientSize = new System.Drawing.Size(266, 248);
+            this.Controls.Add(this.BirthDateTimePicker);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.ErrorMessagesButton);
             this.Controls.Add(this.SubmitButton);
             this.Controls.Add(this.LastNameTextBox);
@@ -148,9 +171,9 @@ namespace SimpleValidation
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SocialSecurityTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Form1";
+            this.Name = "AnnotatedForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Code Sample";
+            this.Text = "Annotated";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -169,6 +192,8 @@ namespace SimpleValidation
         private System.Windows.Forms.Button SubmitButton;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button ErrorMessagesButton;
+        private System.Windows.Forms.Label label4;
+        private Controls.NullableDateTimePicker BirthDateTimePicker;
     }
 }
 

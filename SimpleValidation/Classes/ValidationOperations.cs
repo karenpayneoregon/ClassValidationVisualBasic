@@ -1,20 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using DataValidatorLibrary.Helpers;
+using SimpleValidation.Helpers;
+using SimpleValidation.Models;
 
 namespace SimpleValidation.Classes
 {
     public class ValidationOperations
     {
-        public static (bool success, string errorMessages) IsValidTaxpayer(Taxpayer taxpayer)
+        /// <summary>
+        /// Validate <see cref="TaxpayerAnnotated"/>
+        /// </summary>
+        /// <param name="taxpayer">instance of a <see cref="TaxpayerAnnotated"/></param>
+        /// <returns>success and error messages if invalid</returns>
+        public static (bool success, string errorMessages) IsValidTaxpayer(TaxpayerAnnotated taxpayer)
         {
+            // generic method to validate model instance
             var result = ValidationHelper.ValidateEntity(taxpayer);
+
             if (result.IsNotValid)
             {
-                StringBuilder builder = new StringBuilder();
+                var builder = new StringBuilder();
                 result.Errors.ToList().ForEach(x => builder.AppendLine(x.ErrorMessage));
                 return (false, builder.ToString());
             }
