@@ -53,14 +53,9 @@
     <Compile Include="Helpers\ValidationHelper.cs" />
     <Compile Include="LanguageExtensions\AnnotateHelpers.cs" />
     <Compile Include="LanguageExtensions\ObjectExtensions.cs" />
+    <Compile Include="LanguageExtensions\StringHelpers.cs" />
     <Compile Include="LanguageExtensions\ValidatorExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\LanguageExtensionsLibrary\LanguageExtensionsLibrary.csproj">
-      <Project>{7F93F525-1ED4-4842-B8A0-AB1CB0D06EA8}</Project>
-      <Name>LanguageExtensionsLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,19 +5,26 @@ using System.ComponentModel.DataAnnotations;
 namespace SimpleValidation.Classes
 {
 
+    /// <summary>
+    /// Provides a rule for min and max year
+    /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
     public class YearRangeAttribute : ValidationAttribute
     {
+        /// <summary>
+        /// Constructor to pass in maximum year for range
+        /// </summary>
+        /// <param name="maximumYear">Maximum year for range</param>
         public YearRangeAttribute(int maximumYear)
         {
             MaximumYear = maximumYear;
         }
         /// <summary>
-        /// Maximum permitted year
+        /// Maximum year permitted
         /// </summary>
         public int MaximumYear { get; }
         /// <summary>
-        /// Minimum permitted year
+        /// Minimum year permitted 
         /// </summary>
         public int MinimumYear { get; set; }
         public override string FormatErrorMessage(string name)
