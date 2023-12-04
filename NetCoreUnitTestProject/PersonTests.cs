@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using System.ComponentModel.DataAnnotations;
 using BaseDataValidatorLibrary.Helpers;
 using BaseModelsLibrary.Models;
 using NetCoreUnitTestProject.Base;
@@ -29,7 +27,7 @@ namespace NetCoreUnitTestProject
             {
                 FirstName = "Mike",
                 LastName = "Flowers",
-                BirthDate = new DateTime(1932, Now.Month, Now.Day)
+                BirthDate = new DateTime(1984, Now.Month, Now.Day)
             };
 
             // act
@@ -105,7 +103,7 @@ namespace NetCoreUnitTestProject
             {
                 FirstName = "Mike",
                 LastName = "Flowers",
-                BirthDate = new DateTime(1931, date.Month, date.Day)
+                BirthDate = new DateTime(1984, date.Month, date.Day)
             };
 
             // act
@@ -123,7 +121,7 @@ namespace NetCoreUnitTestProject
 
             // assert
             Check.That(birthdayErrorInformation.ToString())
-                .Equals("Valid range for BirthDate is from 1932 to 2022");
+                .Equals("Valid range for BirthDate is from 1983 to 2023");
 
         }
 

@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using BaseDataValidatorLibrary.Helpers;
+﻿using BaseDataValidatorLibrary.Helpers;
 using BaseDataValidatorLibrary.LanguageExtensions;
 using BaseModelsLibrary.Models;
 using NetCoreUnitTestProject.Base;

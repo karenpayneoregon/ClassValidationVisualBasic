@@ -1,6 +1,5 @@
 ﻿using BaseDataValidatorLibrary.CommonRules;
 using BaseDataValidatorLibrary.Helpers;
-using BaseDataValidatorLibrary.LanguageExtensions;
 using BaseModelsLibrary.Models;
 using NetCoreUnitTestProject.Base;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
