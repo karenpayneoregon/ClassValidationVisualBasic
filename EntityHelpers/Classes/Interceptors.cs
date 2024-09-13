@@ -1,15 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace EntityHelpers.Classes
 {
     /// <summary>
-    /// SaveChangesInterceptor interceptor which in it's current state
+    /// SaveChangesInterceptor interceptor which in its current state
     /// has commented out code which works, provides alternate possibilities
     ///
     /// Objective here is to assert for Region property equal to specific value

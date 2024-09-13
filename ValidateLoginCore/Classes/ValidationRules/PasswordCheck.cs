@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace ValidateLoginCore.Classes.ValidationRules
 {
-    public class PasswordCheck : ValidationAttribute
+    public partial class PasswordCheck : ValidationAttribute
     {
         public override bool IsValid(object value)
         {
@@ -17,7 +17,7 @@ namespace ValidateLoginCore.Classes.ValidationRules
             }
             else
             {
-                var pattern = new Regex("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})");
+                var pattern = PasswordPattern();
                 if (!pattern.IsMatch(password))
                 {
                     reason += "Your new password must contain at least 1 symbol character and number.";
@@ -28,16 +28,11 @@ namespace ValidateLoginCore.Classes.ValidationRules
                 }
             }
 
-            if (validPassword)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return validPassword;
 
         }
 
+        [GeneratedRegex("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})")]
+        private static partial Regex PasswordPattern();
     }
 }

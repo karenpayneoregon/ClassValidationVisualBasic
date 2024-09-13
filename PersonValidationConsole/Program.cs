@@ -1,7 +1,7 @@
-﻿using System;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using BaseDataValidatorLibrary.Helpers;
 using BaseModelsLibrary.Models;
+using Spectre.Console;
 using static System.DateTime;
 
 namespace PersonValidationConsole
@@ -67,10 +67,7 @@ namespace PersonValidationConsole
 
         private static void Title(string sender)
         {
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.Write("Running");
-            Console.ResetColor();
-            Console.Write($" {sender}\n");
+            AnsiConsole.MarkupLine($"[cyan]Running[/] {sender}");
         }
 
         [ModuleInitializer]
