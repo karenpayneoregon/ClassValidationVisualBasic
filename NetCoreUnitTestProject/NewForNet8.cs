@@ -3,18 +3,19 @@ using BaseModelsLibrary.Models;
 using NetCoreUnitTestProject.Base;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;
+using static NetCoreUnitTestProject.Base.Trait;
 
 namespace NetCoreUnitTestProject;
 
 /// <summary>
 /// 
 /// </summary>
-[TestClass]
+[TestClass, TestCategory("Valid states")]
 public partial class NewForNet8 : TestBase
 {
 
     [TestMethod]
-    [TestTraits(Trait.net8Additions)]
+    [TestTraits(Net8Additions)]
     public void IsValidState()
     {
         State state = _state;
@@ -22,7 +23,7 @@ public partial class NewForNet8 : TestBase
         Check.That(validationResult.HasError).IsFalse();
     }
     [TestMethod]
-    [TestTraits(Trait.net8Additions)]
+    [TestTraits(Net8Additions)]
     public void IsNotValidState()
     {
         string expectedStateValue = "Invalid state";

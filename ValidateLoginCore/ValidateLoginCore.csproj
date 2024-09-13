@@ -2,8 +2,7 @@
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-		<LangVersion>9.0</LangVersion>
-		<TargetFramework>net5.0-windows</TargetFramework>
+		<TargetFramework>net8.0-windows</TargetFramework>
 		<UseWPF>true</UseWPF>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 	</PropertyGroup>
@@ -19,7 +18,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+	  <PackageReference Include="System.Drawing.Common" Version="8.0.8" />
 	</ItemGroup>
 
 	<ItemGroup>

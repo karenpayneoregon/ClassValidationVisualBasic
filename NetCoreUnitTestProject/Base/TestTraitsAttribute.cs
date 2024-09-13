@@ -1,20 +1,15 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace NetCoreUnitTestProject.Base
 {
     public enum Trait
     {
-        /// <summary>
-        /// Place holder 
-        /// </summary>
         PlaceHolder,
         Annotations,
+        KeyAnnotations,
         Books,
         AnnotationsHelpers,
-        net8Additions
+        Net8Additions
     }
     /// <summary>
     /// Declarative class for using Trait enum about for traits on test method.

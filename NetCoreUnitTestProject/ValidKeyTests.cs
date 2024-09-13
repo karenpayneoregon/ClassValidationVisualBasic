@@ -4,6 +4,7 @@ using BaseModelsLibrary.Models;
 using NetCoreUnitTestProject.Base;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;
+using static NetCoreUnitTestProject.Base.Trait;
 
 namespace NetCoreUnitTestProject
 {
@@ -12,7 +13,7 @@ namespace NetCoreUnitTestProject
     public partial class ValidKeyTests : TestBase
     {
         [TestMethod]
-        [TestTraits(Trait.Annotations)]
+        [TestTraits(KeyAnnotations)]
         public void ValidKeyTest()
         {
             // arrange
@@ -27,7 +28,7 @@ namespace NetCoreUnitTestProject
 
         }
         [TestMethod]
-        [TestTraits(Trait.Annotations)]
+        [TestTraits(Annotations)]
         public void NotValidBadIdKeyTest()
         {
             // arrange
@@ -43,7 +44,7 @@ namespace NetCoreUnitTestProject
         }
 
         [TestMethod]
-        [TestTraits(Trait.Annotations)]
+        [TestTraits(Annotations)]
         public void NotValidNoIdKeyTest()
         {
             // arrange

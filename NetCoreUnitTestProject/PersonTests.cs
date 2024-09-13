@@ -97,7 +97,7 @@ namespace NetCoreUnitTestProject
         {
 
             // arrange
-            DateTime date = new(2022, 4, 27);
+            DateTime date = new(DateTime.Now.Year, 4, 27);
 
             Person person = new()
             {
@@ -117,11 +117,11 @@ namespace NetCoreUnitTestProject
             // raw
             Console.WriteLine(errorMessage);
             // formatted 
-            Console.WriteLine(errorMessage, "Birthdate");
+            Console.WriteLine(errorMessage!, "Birthdate");
 
             // assert
             Check.That(birthdayErrorInformation.ToString())
-                .Equals("Valid range for BirthDate is from 1983 to 2023");
+                .Equals($"Valid range for BirthDate is from 1984 to {DateTime.Now.Year}");
 
         }
 
