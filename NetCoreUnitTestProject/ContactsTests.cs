@@ -41,14 +41,14 @@ namespace NetCoreUnitTestProject
             // arrange
             var contact = new Contact();
 
-            List<string> expected = new()
-            {
+            List<string> expected =
+            [
                 "First Name Required",
                 "Last Name Required",
                 "Please Enter Email Address",
                 "Please enter your Personal Email email address",
                 "Mobile number is required"
-            };
+            ];
 
 
             // act

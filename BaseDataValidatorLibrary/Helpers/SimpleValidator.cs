@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+// ReSharper disable ConvertConstructorToMemberInitializers
 
 namespace BaseDataValidatorLibrary.Helpers
 {

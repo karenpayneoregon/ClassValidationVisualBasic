@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using BaseDataValidatorLibrary.Classes;
 using BaseDataValidatorLibrary.CommonRules;
 
@@ -52,7 +47,7 @@ namespace BaseDataValidatorLibrary.Helpers
         public static List<ValidateYearsDetails> GetValidateYearsErrorMessages<T>(T sender)
         {
 
-            List<ValidateYearsDetails> list = new();
+            List<ValidateYearsDetails> list = [];
 
             var type = typeof(T);
             PropertyInfo[] propertyInfo = type.GetProperties();

@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;
 using static BaseDataValidatorLibrary.Classes.Annotate;
+using static NetCoreUnitTestProject.Base.Trait;
 
 namespace NetCoreUnitTestProject
 {
@@ -11,34 +12,30 @@ namespace NetCoreUnitTestProject
     [TestClass]
     public partial class SimpleEmailTests : TestBase
     {
-        /// <summary>
-        /// 
-        /// </summary>
+
         [TestMethod]
-        [TestTraits(Trait.Annotations)]
+        [TestTraits(Annotations)]
         public void SimpleSingleTest()
         {
             var result = ValidEmail("payne@gmail.com");
             Check.That(result).IsTrue();
         }
+
         [TestMethod]
-        [TestTraits(Trait.Annotations)]
+        [TestTraits(Annotations)]
         public void SimpleSingleInvalidTest()
         {
             var result = ValidEmail("paynegmail.com");
             Check.That(result).IsFalse();
         }
-
-
-
+        
 
         [TestMethod]
-        [TestTraits(Trait.PlaceHolder)]
+        [TestTraits(PlaceHolder)]
         public void ListTest()
         {
             var humans = Mocked.Humans;
-
-
+            
             var results = humans
                 .Select(x => new { Human = x, IsValid = ValidEmail(x.Email) }).ToList();
 
@@ -56,13 +53,13 @@ namespace NetCoreUnitTestProject
         }
         public class Mocked
         {
-            public static List<Human> Humans => new List<Human>()
-            {
-                new Human() {Name = "Karen", Email = "karen@gmail"},
-                new Human() {Name = "Bill", Email = "billgmail"},
-                new Human() {Name = "Mike", Email = "mike@"},
-                new Human() {Name = "Sue", Email = "sue@comcast.net"},
-            };
+            public static List<Human> Humans =>
+            [
+                new Human() { Name = "Karen", Email = "karen@gmail" },
+                new Human() { Name = "Bill", Email = "billgmail" },
+                new Human() { Name = "Mike", Email = "mike@" },
+                new Human() { Name = "Sue", Email = "sue@comcast.net" }
+            ];
         }
     }
 

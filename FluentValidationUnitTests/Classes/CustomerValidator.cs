@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using BaseModelsLibrary.Models;
+﻿using System.Text.RegularExpressions;
 using FluentValidation;
 using FluentValidationUnitTests.LanguageExtensions;
 
@@ -71,7 +64,7 @@ namespace FluentValidationUnitTests.Classes
 
         private static bool HasValidPostcode(string postcode)
         {
-            List<string> list = new() { "97301", "97223", "97209", "97146", "97374", "97734" };
+            List<string> list = ["97301", "97223", "97209", "97146", "97374", "97734"];
             var result = list.FirstOrDefault(item => item == postcode);
             return result is not null;
         }

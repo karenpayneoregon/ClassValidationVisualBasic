@@ -27,7 +27,7 @@ namespace NetCoreUnitTestProject
             TestResults = new List<TestContext>();
         }
 
-        public Taxpayer TheTaxpayer = new()
+        public Taxpayer Taxpayer = new()
         {
             FirstName = "Mary",
             LastName = "Smith",

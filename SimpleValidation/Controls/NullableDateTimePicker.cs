@@ -8,7 +8,7 @@ namespace SimpleValidation.Controls
     {
         private DateTimePickerFormat originalFormat = DateTimePickerFormat.Short;
         private string originalCustomFormat;
-        private bool isNull;
+        private bool _isNull;
 
         public DateTime DateTime
         {
@@ -19,18 +19,18 @@ namespace SimpleValidation.Controls
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public new DateTime Value
         {
-            get => isNull ? DateTime.MinValue : base.Value;
+            get => _isNull ? DateTime.MinValue : base.Value;
             set
             {
                 // incoming value is set to min date
                 if (value == DateTime.MinValue)
                 {
                     // if set to min and not previously null, preserve original formatting
-                    if (!isNull)
+                    if (!_isNull)
                     {
                         originalFormat = Format;
                         originalCustomFormat = CustomFormat;
-                        isNull = true;
+                        _isNull = true;
                     }
 
                     Format = DateTimePickerFormat.Custom;
@@ -39,11 +39,11 @@ namespace SimpleValidation.Controls
                 else // incoming value is real date
                 {
                     // if set to real date and previously null, restore original formatting
-                    if (isNull)
+                    if (_isNull)
                     {
                         Format = originalFormat;
                         CustomFormat = originalCustomFormat;
-                        isNull = false;
+                        _isNull = false;
                     }
 
                     base.Value = value;
@@ -56,11 +56,11 @@ namespace SimpleValidation.Controls
             // on keyboard close, restore format
             if (MouseButtons == MouseButtons.None)
             {
-                if (isNull)
+                if (_isNull)
                 {
                     Format = originalFormat;
                     CustomFormat = originalCustomFormat;
-                    isNull = false;
+                    _isNull = false;
                 }
             }
 

@@ -1,8 +1,5 @@
-using System;
-using System.Linq;
 using BaseDataValidatorLibrary.Helpers;
 using BaseDataValidatorLibrary.LanguageExtensions;
-using BaseModelsLibrary.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NetCoreUnitTestProject.Base;
 using NFluent;
